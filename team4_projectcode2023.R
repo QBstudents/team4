@@ -14,12 +14,9 @@ library("viridis")
 library("gplots")
 library("indicspecies")
 
+#data wrangling####
 #loading data
 kbsdata1<-read.csv("data/kbs_set_1.csv")
-
-#data wrangling####
-#loading dataset
-kbsdata1<-read.csv("kbs_set_1.csv")
 #removing first row (has extra unneeded characters)
 kbsdata1<-kbsdata1[-1,]
 #isolating relevant data columns
