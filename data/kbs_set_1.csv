@@ -1,0 +1,276 @@
+sample_date,species name,treatment (plotname),replicate,disturbed,fertilized,biomass_g_m2
+#,,,,,,gramsPerSquareMeter
+9/3/14,Abutilon theophrasti Medikus,T7,R1,disturbed,unfertilized,6.83
+9/3/14,Abutilon theophrasti Medikus,T7,R1,disturbed,fertilized,11.49
+9/3/14,Abutilon theophrasti Medikus,T7,R2,disturbed,unfertilized,0.1
+9/3/14,Abutilon theophrasti Medikus,T7,R2,disturbed,fertilized,2.01
+9/3/14,Abutilon theophrasti Medikus,T7,R3,disturbed,fertilized,3.22
+9/3/14,Abutilon theophrasti Medikus,T7,R3,disturbed,unfertilized,0.32
+9/3/14,Abutilon theophrasti Medikus,T7,R4,disturbed,fertilized,2.57
+9/3/14,Abutilon theophrasti Medikus,T7,R4,disturbed,unfertilized,0.6
+9/3/14,Abutilon theophrasti Medikus,T7,R5,disturbed,unfertilized,3.02
+9/3/14,Abutilon theophrasti Medikus,T7,R5,disturbed,fertilized,2.58
+9/3/14,Abutilon theophrasti Medikus,T7,R6,disturbed,unfertilized,6.3
+9/3/14,Abutilon theophrasti Medikus,T7,R6,disturbed,fertilized,3.4
+7/28/14,Achillea millefolium L.,T7,R1,undisturbed,unfertilized,65.67
+7/28/14,Achillea millefolium L.,T7,R3,undisturbed,unfertilized,4.26
+7/28/14,Achillea millefolium L.,T7,R6,undisturbed,unfertilized,2.57
+9/3/14,Amaranthus retroflexus L.,T7,R1,disturbed,unfertilized,0.02
+9/3/14,Amaranthus retroflexus L.,T7,R2,disturbed,unfertilized,0.25
+9/3/14,Amaranthus retroflexus L.,T7,R2,disturbed,fertilized,0.05
+9/3/14,Amaranthus retroflexus L.,T7,R3,disturbed,fertilized,0.98
+9/3/14,Amaranthus retroflexus L.,T7,R4,disturbed,fertilized,4.91
+9/3/14,Amaranthus retroflexus L.,T7,R4,disturbed,unfertilized,0.02
+9/3/14,Amaranthus retroflexus L.,T7,R5,disturbed,fertilized,1.65
+9/3/14,Amaranthus retroflexus L.,T7,R6,disturbed,unfertilized,6.35
+9/3/14,Ambrosia artemisiifolia L.,T7,R1,disturbed,unfertilized,71.93
+9/3/14,Ambrosia artemisiifolia L.,T7,R1,disturbed,fertilized,435.14
+9/3/14,Ambrosia artemisiifolia L.,T7,R2,disturbed,unfertilized,74.16
+9/3/14,Ambrosia artemisiifolia L.,T7,R2,disturbed,fertilized,95.49
+9/3/14,Ambrosia artemisiifolia L.,T7,R3,disturbed,fertilized,1.08
+9/3/14,Ambrosia artemisiifolia L.,T7,R6,disturbed,unfertilized,49.81
+9/3/14,Ambrosia artemisiifolia L.,T7,R6,disturbed,fertilized,67.86
+7/28/14,Ambrosia artemisiifolia L.,T7,R1,undisturbed,unfertilized,0.04
+7/28/14,Ambrosia artemisiifolia L.,T7,R2,undisturbed,unfertilized,0.01
+7/28/14,Ambrosia artemisiifolia L.,T7,R6,undisturbed,unfertilized,0.38
+7/28/14,Apocynum cannabinum L.,T7,R1,undisturbed,fertilized,32.56
+7/28/14,Apocynum cannabinum L.,T7,R2,undisturbed,unfertilized,7.37
+7/28/14,Apocynum cannabinum L.,T7,R2,undisturbed,fertilized,169.7
+7/28/14,Apocynum cannabinum L.,T7,R3,undisturbed,fertilized,73.08
+7/28/14,Apocynum cannabinum L.,T7,R3,undisturbed,unfertilized,17.39
+9/3/14,Arabidopsis thaliana (L.) Heynh.,T7,R2,disturbed,unfertilized,0.01
+9/3/14,Arabidopsis thaliana (L.) Heynh.,T7,R5,disturbed,unfertilized,0.04
+9/3/14,Arabidopsis thaliana (L.) Heynh.,T7,R6,disturbed,unfertilized,0.01
+7/28/14,Asclepias syriaca L.,T7,R3,undisturbed,fertilized,73.2
+7/28/14,Asclepias syriaca L.,T7,R3,undisturbed,unfertilized,6.73
+7/28/14,Asclepias syriaca L.,T7,R4,undisturbed,unfertilized,45.77
+7/28/14,Asclepias syriaca L.,T7,R4,undisturbed,fertilized,54.42
+7/28/14,Asclepias syriaca L.,T7,R6,undisturbed,unfertilized,12.42
+7/28/14,Asclepias syriaca L.,T7,R6,undisturbed,fertilized,113.49
+7/28/14,Asplenium platyneuron (L.) Oakes (*),T7,R6,undisturbed,unfertilized,0.32
+7/28/14,Aster pilosus Willd.,T7,R1,undisturbed,unfertilized,6.21
+7/28/14,Aster pilosus Willd.,T7,R5,undisturbed,unfertilized,9.72
+7/28/14,Aster pilosus Willd.,T7,R5,undisturbed,fertilized,0.74
+7/28/14,Aster pilosus Willd.,T7,R6,undisturbed,unfertilized,20.89
+7/28/14,Aster pilosus Willd.,T7,R6,undisturbed,fertilized,8.43
+7/28/14,Aster sagittifolius,T7,R2,undisturbed,unfertilized,51.89
+7/28/14,Aster sagittifolius,T7,R2,undisturbed,fertilized,41.97
+7/28/14,Aster sagittifolius,T7,R3,undisturbed,unfertilized,15.48
+7/28/14,Aster sagittifolius,T7,R4,undisturbed,fertilized,82.48
+7/28/14,Aster sagittifolius,T7,R5,undisturbed,unfertilized,22.59
+7/28/14,Barbarea vulgaris R. Br.,T7,R4,undisturbed,unfertilized,0.81
+7/28/14,Bromus inermis Leyss.,T7,R1,undisturbed,fertilized,666.1
+7/28/14,Bromus inermis Leyss.,T7,R3,undisturbed,unfertilized,6.52
+7/28/14,Bromus inermis Leyss.,T7,R5,undisturbed,unfertilized,28.7
+7/28/14,Bromus inermis Leyss.,T7,R5,undisturbed,fertilized,306.69
+7/28/14,Celastrus orbiculatus Thunb.,T7,R6,undisturbed,unfertilized,69.72
+7/28/14,Centaurea stoebe L. ssp. micranthos (Gugler) Hayek,T7,R1,undisturbed,unfertilized,119.39
+7/28/14,Centaurea stoebe L. ssp. micranthos (Gugler) Hayek,T7,R5,undisturbed,unfertilized,21.49
+7/28/14,Centaurea stoebe L. ssp. micranthos (Gugler) Hayek,T7,R5,undisturbed,fertilized,1.65
+7/28/14,Centaurea stoebe L. ssp. micranthos (Gugler) Hayek,T7,R6,undisturbed,unfertilized,102.21
+7/28/14,Cerastium vulgatum L.,T7,R6,undisturbed,unfertilized,0.01
+9/3/14,Chenopodium album L.,T7,R1,disturbed,unfertilized,17.78
+9/3/14,Chenopodium album L.,T7,R1,disturbed,fertilized,13.14
+9/3/14,Chenopodium album L.,T7,R2,disturbed,unfertilized,12.83
+9/3/14,Chenopodium album L.,T7,R2,disturbed,fertilized,35.55
+9/3/14,Chenopodium album L.,T7,R3,disturbed,fertilized,22.96
+9/3/14,Chenopodium album L.,T7,R3,disturbed,unfertilized,8.01
+9/3/14,Chenopodium album L.,T7,R4,disturbed,fertilized,23.86
+9/3/14,Chenopodium album L.,T7,R4,disturbed,unfertilized,7.17
+9/3/14,Chenopodium album L.,T7,R5,disturbed,fertilized,53.74
+9/3/14,Chenopodium album L.,T7,R5,disturbed,unfertilized,18.69
+9/3/14,Chenopodium album L.,T7,R6,disturbed,unfertilized,7.33
+9/3/14,Chenopodium album L.,T7,R6,disturbed,fertilized,30.09
+9/3/14,Cyperus esculentus L.,T7,R1,disturbed,unfertilized,66.21
+9/3/14,Cyperus esculentus L.,T7,R1,disturbed,fertilized,0.61
+9/3/14,Cyperus esculentus L.,T7,R2,disturbed,unfertilized,67.59
+9/3/14,Cyperus esculentus L.,T7,R2,disturbed,fertilized,52.54
+9/3/14,Cyperus esculentus L.,T7,R3,disturbed,fertilized,9.85
+9/3/14,Cyperus esculentus L.,T7,R3,disturbed,unfertilized,47.05
+9/3/14,Cyperus esculentus L.,T7,R4,disturbed,fertilized,1.9
+9/3/14,Cyperus esculentus L.,T7,R4,disturbed,unfertilized,17.85
+9/3/14,Cyperus esculentus L.,T7,R5,disturbed,fertilized,12.88
+9/3/14,Cyperus esculentus L.,T7,R5,disturbed,unfertilized,24.93
+7/28/14,Dactylis glomerata L.,T7,R1,undisturbed,unfertilized,21.56
+7/28/14,Dactylis glomerata L.,T7,R2,undisturbed,unfertilized,13.7
+7/28/14,Daucus carota L.,T7,R1,undisturbed,unfertilized,3.05
+7/28/14,Daucus carota L.,T7,R5,undisturbed,unfertilized,0.01
+7/28/14,Dianthus armeria L.,T7,R1,undisturbed,unfertilized,1.2
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R1,disturbed,unfertilized,0.12
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R1,disturbed,fertilized,0.26
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R2,disturbed,unfertilized,5.17
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R2,disturbed,fertilized,0.83
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R3,disturbed,unfertilized,4.91
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R4,disturbed,unfertilized,0.34
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R5,disturbed,unfertilized,1.01
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R6,disturbed,unfertilized,62.53
+9/3/14,Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl.,T7,R6,disturbed,fertilized,2.62
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R1,disturbed,fertilized,32.19
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R1,disturbed,unfertilized,80.34
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R2,disturbed,unfertilized,89.62
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R2,disturbed,fertilized,36.61
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R3,disturbed,fertilized,21.51
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R3,disturbed,unfertilized,77.06
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R4,disturbed,fertilized,138.37
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R4,disturbed,unfertilized,108.16
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R5,disturbed,fertilized,80.47
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R5,disturbed,unfertilized,3.35
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R6,disturbed,unfertilized,34.86
+9/3/14,Digitaria sanguinalis (L.) Scop.,T7,R6,disturbed,fertilized,5.32
+9/3/14,Elymus repens (L.) Gould,T7,R1,disturbed,fertilized,1.03
+7/28/14,Elymus repens (L.) Gould,T7,R1,undisturbed,fertilized,0.82
+7/28/14,Elymus repens (L.) Gould,T7,R1,undisturbed,unfertilized,0.05
+7/28/14,Elymus repens (L.) Gould,T7,R2,undisturbed,unfertilized,64.74
+7/28/14,Elymus repens (L.) Gould,T7,R5,undisturbed,unfertilized,10.02
+7/28/14,Elymus repens (L.) Gould,T7,R5,undisturbed,fertilized,271.1
+7/28/14,Elymus repens (L.) Gould,T7,R6,undisturbed,unfertilized,7.73
+7/28/14,Elymus repens (L.) Gould,T7,R6,undisturbed,fertilized,503.35
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R1,disturbed,unfertilized,0.77
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R1,disturbed,fertilized,0.09
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R2,disturbed,unfertilized,0.09
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R4,disturbed,fertilized,5.74
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R4,disturbed,unfertilized,0.01
+9/3/14,Eragrostis cilianensis (All.) E.Mosher,T7,R6,disturbed,unfertilized,0.03
+9/3/14,Erigeron annuus (L.) Pers.,T7,R1,disturbed,fertilized,0.01
+9/3/14,Erigeron annuus (L.) Pers.,T7,R5,disturbed,unfertilized,0.15
+9/3/14,Erigeron annuus (L.) Pers.,T7,R6,disturbed,fertilized,0.34
+9/3/14,Erigeron annuus (L.) Pers.,T7,R6,disturbed,unfertilized,0.13
+7/28/14,Erigeron annuus (L.) Pers.,T7,R1,undisturbed,fertilized,0.05
+7/28/14,Erigeron annuus (L.) Pers.,T7,R1,undisturbed,unfertilized,1.6
+7/28/14,Erigeron annuus (L.) Pers.,T7,R5,undisturbed,unfertilized,0.16
+7/28/14,Erigeron annuus (L.) Pers.,T7,R6,undisturbed,unfertilized,4.56
+7/28/14,Erigeron annuus (L.) Pers.,T7,R6,undisturbed,fertilized,0.87
+7/28/14,Euthamia graminifolia (L.) Nutt.,T7,R1,undisturbed,fertilized,42.17
+7/28/14,Euthamia graminifolia (L.) Nutt.,T7,R2,undisturbed,unfertilized,41.62
+7/28/14,Euthamia graminifolia (L.) Nutt.,T7,R4,undisturbed,fertilized,340.38
+7/28/14,Hieracium sp. (*),T7,R1,undisturbed,unfertilized,7.26
+7/28/14,Hieracium sp. (*),T7,R5,undisturbed,unfertilized,0.82
+7/28/14,Hieracium sp. (*),T7,R6,undisturbed,unfertilized,0.3
+7/28/14,Hypericum perforatum L.,T7,R1,undisturbed,unfertilized,0.24
+7/28/14,Hypericum perforatum L.,T7,R3,undisturbed,unfertilized,2.06
+7/28/14,Hypericum perforatum L.,T7,R4,undisturbed,unfertilized,2.44
+7/28/14,Juncus tenuis Willd.,T7,R3,undisturbed,unfertilized,0.21
+7/28/14,Lotus corniculatus L.,T7,R4,undisturbed,unfertilized,158.21
+9/3/14,Mollugo verticillata L.,T7,R6,disturbed,unfertilized,0.06
+9/3/14,Oxalis stricta L.,T7,R1,disturbed,fertilized,0.02
+9/3/14,Oxalis stricta L.,T7,R3,disturbed,fertilized,0.07
+9/3/14,Oxalis stricta L.,T7,R3,disturbed,unfertilized,0.01
+9/3/14,Oxalis stricta L.,T7,R4,disturbed,unfertilized,0.01
+9/3/14,Oxalis stricta L.,T7,R5,disturbed,unfertilized,0.07
+9/3/14,Oxalis stricta L.,T7,R6,disturbed,fertilized,0.01
+9/3/14,Oxalis stricta L.,T7,R6,disturbed,unfertilized,0.05
+7/28/14,Oxalis stricta L.,T7,R3,undisturbed,unfertilized,0.02
+7/28/14,Oxalis stricta L.,T7,R6,undisturbed,unfertilized,0.01
+9/3/14,Panicum capillare L.,T7,R1,disturbed,unfertilized,0.06
+9/3/14,Panicum capillare L.,T7,R4,disturbed,fertilized,0.27
+9/3/14,Panicum capillare L.,T7,R4,disturbed,unfertilized,0.74
+9/3/14,Panicum capillare L.,T7,R6,disturbed,unfertilized,0.2
+9/3/14,Panicum dichotomiflorum Michx.,T7,R1,disturbed,unfertilized,24.04
+9/3/14,Panicum dichotomiflorum Michx.,T7,R1,disturbed,fertilized,7.01
+9/3/14,Panicum dichotomiflorum Michx.,T7,R2,disturbed,unfertilized,0.5
+9/3/14,Panicum dichotomiflorum Michx.,T7,R4,disturbed,fertilized,5.78
+9/3/14,Panicum dichotomiflorum Michx.,T7,R4,disturbed,unfertilized,2.81
+9/3/14,Panicum dichotomiflorum Michx.,T7,R6,disturbed,unfertilized,6.1
+9/3/14,Persicaria maculosa  Gray,T7,R1,disturbed,unfertilized,0.02
+9/3/14,Persicaria maculosa  Gray,T7,R3,disturbed,fertilized,0.29
+7/28/14,Phalaris arundinacea L.,T7,R2,undisturbed,fertilized,841.99
+7/28/14,Phleum pratense L.,T7,R1,undisturbed,fertilized,71.43
+7/28/14,Phleum pratense L.,T7,R1,undisturbed,unfertilized,23.84
+7/28/14,Phleum pratense L.,T7,R4,undisturbed,unfertilized,355.22
+7/28/14,Phleum pratense L.,T7,R5,undisturbed,fertilized,27.32
+7/28/14,Phleum pratense L.,T7,R5,undisturbed,unfertilized,47.55
+7/28/14,Poa compressa L.,T7,R1,undisturbed,unfertilized,4.33
+7/28/14,Poa compressa L.,T7,R2,undisturbed,unfertilized,6.13
+7/28/14,Poa compressa L.,T7,R3,undisturbed,unfertilized,18.45
+7/28/14,Poa pratensis L.,T7,R1,undisturbed,fertilized,0.49
+7/28/14,Poa pratensis L.,T7,R1,undisturbed,unfertilized,9.4
+7/28/14,Poa pratensis L.,T7,R2,undisturbed,unfertilized,31.89
+7/28/14,Poa pratensis L.,T7,R3,undisturbed,fertilized,0.52
+7/28/14,Poa pratensis L.,T7,R3,undisturbed,unfertilized,38.11
+7/28/14,Poa pratensis L.,T7,R4,undisturbed,unfertilized,0.44
+7/28/14,Poa pratensis L.,T7,R5,undisturbed,unfertilized,19.33
+7/28/14,Poa pratensis L.,T7,R5,undisturbed,fertilized,0.26
+7/28/14,Poa pratensis L.,T7,R6,undisturbed,unfertilized,217.93
+7/28/14,Poa pratensis L.,T7,R6,undisturbed,fertilized,1.32
+9/3/14,Polygonum pensylvanicum L.,T7,R2,disturbed,unfertilized,0.19
+9/3/14,Polygonum pensylvanicum L.,T7,R2,disturbed,fertilized,9.29
+9/3/14,Polygonum pensylvanicum L.,T7,R5,disturbed,unfertilized,0.39
+9/3/14,Polygonum pensylvanicum L.,T7,R6,disturbed,fertilized,1.88
+9/3/14,Polygonum pensylvanicum L.,T7,R6,disturbed,unfertilized,0.1
+9/3/14,Portulaca oleracea L.,T7,R6,disturbed,fertilized,0.01
+7/28/14,Potentilla norvegica L.,T7,R4,undisturbed,fertilized,3.04
+7/28/14,Potentilla recta L.,T7,R4,undisturbed,unfertilized,8.58
+7/28/14,Potentilla recta L.,T7,R4,undisturbed,fertilized,8.31
+7/28/14,Rubus allegheniensis T.C. Porter (*),T7,R2,undisturbed,unfertilized,102.43
+7/28/14,Rubus allegheniensis T.C. Porter (*),T7,R2,undisturbed,fertilized,62.81
+7/28/14,Rubus flagellaris,T7,R3,undisturbed,unfertilized,89.73
+7/28/14,Rubus flagellaris,T7,R4,undisturbed,fertilized,12.12
+7/28/14,Rubus flagellaris,T7,R6,undisturbed,unfertilized,114.1
+7/28/14,Rubus occidentalis L. (*),T7,R4,undisturbed,fertilized,466.74
+9/3/14,Rumex crispus L.,T7,R2,disturbed,fertilized,0.02
+7/28/14,Rumex crispus L.,T7,R1,undisturbed,fertilized,0.3
+7/28/14,Rumex crispus L.,T7,R2,undisturbed,fertilized,7.83
+7/28/14,Rumex crispus L.,T7,R3,undisturbed,fertilized,15.77
+7/28/14,Rumex crispus L.,T7,R4,undisturbed,fertilized,6.84
+7/28/14,Rumex crispus L.,T7,R5,undisturbed,fertilized,0.99
+7/28/14,Rumex obtusifolius L.,T7,R4,undisturbed,fertilized,11.2
+9/3/14,Setaria faberi Herrm.,T7,R1,disturbed,fertilized,584.63
+9/3/14,Setaria faberi Herrm.,T7,R1,disturbed,unfertilized,84.98
+9/3/14,Setaria faberi Herrm.,T7,R2,disturbed,unfertilized,252.93
+9/3/14,Setaria faberi Herrm.,T7,R2,disturbed,fertilized,830.92
+9/3/14,Setaria faberi Herrm.,T7,R3,disturbed,fertilized,624.78
+9/3/14,Setaria faberi Herrm.,T7,R3,disturbed,unfertilized,134.89
+9/3/14,Setaria faberi Herrm.,T7,R4,disturbed,fertilized,852.75
+9/3/14,Setaria faberi Herrm.,T7,R4,disturbed,unfertilized,200.49
+9/3/14,Setaria faberi Herrm.,T7,R5,disturbed,fertilized,1056.85
+9/3/14,Setaria faberi Herrm.,T7,R5,disturbed,unfertilized,799.6
+9/3/14,Setaria faberi Herrm.,T7,R6,disturbed,unfertilized,345.25
+9/3/14,Setaria faberi Herrm.,T7,R6,disturbed,fertilized,1015.68
+7/28/14,Setaria faberi Herrm.,T7,R6,undisturbed,unfertilized,0.15
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R2,disturbed,unfertilized,2.86
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R2,disturbed,fertilized,5.65
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R3,disturbed,unfertilized,0.85
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R5,disturbed,unfertilized,29.27
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R6,disturbed,unfertilized,22.26
+9/3/14,Setaria pumila (Poir.) Roem. & Schult,T7,R6,disturbed,fertilized,0.02
+7/28/14,Silene alba (Mill.) E.H.L.Krause,T7,R2,undisturbed,fertilized,2.89
+7/28/14,Silene alba (Mill.) E.H.L.Krause,T7,R3,undisturbed,fertilized,82.92
+7/28/14,Silene alba (Mill.) E.H.L.Krause,T7,R4,undisturbed,fertilized,101.96
+7/28/14,Silene alba (Mill.) E.H.L.Krause,T7,R5,undisturbed,fertilized,12.09
+7/28/14,Silene alba (Mill.) E.H.L.Krause,T7,R6,undisturbed,fertilized,75.27
+7/28/14,Solanum sp. (*),T7,R6,undisturbed,unfertilized,0.32
+7/28/14,Solidago canadensis L.,T7,R1,undisturbed,unfertilized,135.83
+7/28/14,Solidago canadensis L.,T7,R1,undisturbed,fertilized,218.59
+7/28/14,Solidago canadensis L.,T7,R2,undisturbed,unfertilized,561.77
+7/28/14,Solidago canadensis L.,T7,R2,undisturbed,fertilized,503.4
+7/28/14,Solidago canadensis L.,T7,R3,undisturbed,unfertilized,300.53
+7/28/14,Solidago canadensis L.,T7,R3,undisturbed,fertilized,667.44
+7/28/14,Solidago canadensis L.,T7,R4,undisturbed,unfertilized,235.71
+7/28/14,Solidago canadensis L.,T7,R4,undisturbed,fertilized,305.1
+7/28/14,Solidago canadensis L.,T7,R5,undisturbed,unfertilized,313.77
+7/28/14,Solidago canadensis L.,T7,R6,undisturbed,unfertilized,5.08
+7/28/14,Solidago canadensis L.,T7,R6,undisturbed,fertilized,122.16
+7/28/14,Taraxacum officinale Weber in,T7,R1,undisturbed,unfertilized,0.05
+7/28/14,Taraxacum officinale Weber in,T7,R2,undisturbed,unfertilized,1.29
+7/28/14,Taraxacum officinale Weber in,T7,R3,undisturbed,fertilized,0.01
+7/28/14,Taraxacum officinale Weber in,T7,R6,undisturbed,unfertilized,0.18
+7/28/14,Tridens flavus (L.) A.S.Hitchc.,T7,R6,undisturbed,unfertilized,4.27
+7/28/14,Trifolium campestre Schreb.,T7,R6,undisturbed,unfertilized,0.07
+7/28/14,Trifolium hybridum L. (*),T7,R1,undisturbed,unfertilized,77.26
+7/28/14,Trifolium hybridum L. (*),T7,R3,undisturbed,unfertilized,0.18
+7/28/14,Trifolium hybridum L. (*),T7,R6,undisturbed,unfertilized,10.93
+7/28/14,Trifolium pratense L.,T7,R1,undisturbed,unfertilized,13.93
+7/28/14,Trifolium pratense L.,T7,R2,undisturbed,unfertilized,65.18
+7/28/14,Trifolium pratense L.,T7,R3,undisturbed,unfertilized,327.14
+7/28/14,Trifolium pratense L.,T7,R3,undisturbed,fertilized,32.3
+7/28/14,Trifolium pratense L.,T7,R4,undisturbed,unfertilized,70.79
+7/28/14,Trifolium pratense L.,T7,R5,undisturbed,unfertilized,43.97
+7/28/14,Trifolium pratense L.,T7,R5,undisturbed,fertilized,3.06
+7/28/14,Trifolium pratense L.,T7,R6,undisturbed,unfertilized,29.82
+7/28/14,Trifolium repens L.,T7,R1,undisturbed,unfertilized,1.64
+7/28/14,Trifolium repens L.,T7,R2,undisturbed,unfertilized,0.01
+7/28/14,Trifolium repens L.,T7,R3,undisturbed,fertilized,0.18
+7/28/14,Trifolium repens L.,T7,R4,undisturbed,unfertilized,0.14
+7/28/14,Trifolium repens L.,T7,R5,undisturbed,unfertilized,0.38
+7/28/14,Trifolium repens L.,T7,R5,undisturbed,fertilized,0.01
+7/28/14,Veronica sp.,T7,R6,undisturbed,unfertilized,0.01
