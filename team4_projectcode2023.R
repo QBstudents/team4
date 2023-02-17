@@ -279,3 +279,62 @@ summary(dist.indval)
 adonis2(sXspp.treat~fert.factor,method="bray",permutations=999)
 #does not seem to show differences between fertilized and unfertilized 
 #communities, so will focus on dist/undist and interaction treatments
+
+#Principal coordinates analysis (ordination)####
+#this should show organization of sites based on community comp. and 
+#show which species are associated with each
+
+#first need to create species codes to make ordination legible later
+kbsspplist$spp.code<-c("A.theo","A.mill","A.retr","A.arte","A.cann","A.thal",
+                       "A.syri","A.plat","A.pilo","A.sagi","B.vulg","B.iner",
+                       "C.orbi","C.stoe","C.vulg","C.albu","C.escu","D.glom",
+                       "D.caro","D.arme","D.isch","D.sang","E.repe","E.cili",
+                       "E.annu","E.gram","H.sp","H.perf","J.tenu","L.corn",
+                       "M.vert","O.stri","P.capi","P.dich","P.macu","P.arun",
+                       "Ph.prat","P.comp","Po.prat","P.pens","P.oler","P.norv",
+                       "P.rect","R.alle","R.flag","R.occi","R.cris","R.obtu",
+                       "S.fabe","S.pumi","S.alba","S.sp","S.cana","T.offi",
+                       "T.flav","T.camp","T.hybr","T.prat","T.repe","V.sp")
+#reassigning column names so they'll be legible in the ordination
+colnames(sXspp.treat)<-kbsspplist$spp.code
+
+#pcoa code
+#first need to build resemblance matrix (using Bray-Curtis %diff.)
+kbs.db2<-vegdist(sXspp.treat,method="bray")
+#doing pcoa test
+kbs.pcoa<-cmdscale(kbs.db2,eig=TRUE,k=3)
+#finding variance explained by pcoa
+explvar1<-round(kbs.pcoa$eig[1]/sum(kbs.pcoa$eig),3)*100
+explvar2<-round(kbs.pcoa$eig[2]/sum(kbs.pcoa$eig),3)*100
+explvar3<-round(kbs.pcoa$eig[3]/sum(kbs.pcoa$eig),3)*100
+sum.eig<-sum(explvar1,explvar2,explvar3)
+#creating pcoa plot
+#plot parameters
+par(mar=c(5,5,1,2)+0.1)
+#starting plot
+plot(kbs.pcoa$points[,1],kbs.pcoa$points[,2],ylim=c(-1.0,1.0),
+     xlim=c(-1.25,1.0),xlab=paste("PCoA 1 (", explvar1, "%)",sep=""),
+     ylab=paste("PCoA 2 (", explvar2, "%)",sep=""),
+     pch=16,cex=2.0,type="n",cex.lab=1.5,cex.axis=1.2,axes=FALSE)
+#adding axes to plot
+axis(side=1,labels=T,lwd.ticks=2,cex.axis=1.2,las=1)
+axis(side=2,labels=T,lwd.ticks=2,cex.axis=1.2,las=1)
+abline(h=0,v=0,lty=3)
+box(lwd=2)
+#adding points and labels
+points(kbs.pcoa$points[,1],kbs.pcoa$points[,2],pch=19,cex=3.0,
+       bg="gray",col="gray")
+text(kbs.pcoa$points[,1],kbs.pcoa$points[,2],
+     labels=row.names(kbs.pcoa$points))
+#now finding gummy species scores so they can be included in ordination
+#calculating relative abundances of spp. at each site
+kbsREL<-sXspp.treat
+for(i in 1:nrow(sXspp.treat)){
+  kbsREL[i,]=sXspp.treat[i,]/sum(sXspp.treat[i,])
+}
+#using relative abundance to calculate and add spp. scores to figure
+#reading in new spec.score function
+source("C:/Users/tmzam/OneDrive/Documents/R/Functions_SourceCodes/spec.scores.function.R")
+kbs.pcoa<-add.spec.scores.class(kbs.pcoa,kbsREL,method="pcoa.scores")
+text(kbs.pcoa$cproj[,1],kbs.pcoa$cproj[,2],
+     labels=row.names(kbs.pcoa$cproj),col="blue")
