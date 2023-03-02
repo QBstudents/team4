@@ -4,7 +4,20 @@ author: "Thomas Zambiasi and Anna Werkowski"
 output: html_document
 date: "2023-02-15"
 ---
-## LOADING THE DATA
+
+## ABOUT THE DATA:
+The data we are using for this project was collected from the Kellogg Biological Station Long Term Ecological Research Site (Hickory Corners, MI). Old agricultural fields were repopulated with a natural prairie community starting in 1989; in 1990, treatment to assess the effects of nitrogen enrichment and disturbance was started. This treatment occurred across six replicates and consisted of fully factorial combinations of annual tilling/no tilling and fertilizer addition/no fertilizer (Grman et al. 2010, Gross and Lau 2022). Several types of data have been collected from these plots, including ANPP measures, bulk sample biomass, species-specific biomass, and soil inorganic nitrogen. For the purposes of our project, we will focus on species-specific biomass collected in 2014.
+
+## RESEARCH QUESTIONS:
+Using the data from the KBS Early Successional Microplots and the techniques we've learned in Quantitative Biodiversity, we hope to address the following questions:
+
+*Do disturbance and nutrient addition govern prairie community assembly?*
+
+*Do the disturbance and nutrient treatments have an effect on prairie community evenness?*
+
+The following code will provide the analyses and figures that we hope to use to answer these questions.
+
+## LOADING DATASET
 ```{r}
 kbsdata1<-read.csv("data/kbs_set_1.csv")
 #removing first row (has extra unneeded characters)
@@ -27,7 +40,7 @@ kbsspplist<-as.data.frame(kbsspplist,)
 colnames(kbsspplist)<-c("species.name")
 ```
 
-##CREATING SITE SPECIFIC DATA FOR SITE BY SPECIES MATRIX
+## CREATING SITE BY SPECIES MATRIX
 ```{r}
 #creating site-specific data and adding to sXspp. by spp. name, steps
 #repeat for each site
@@ -192,7 +205,10 @@ sXspp<-mutate_all(sXspp,function(x)as.numeric(x))
 sXspp.mtx<-t(as.matrix(sXspp))
 ```
 
-##CREATING A RANK ABUNDANCE CURVE
+## ALPHA DIVERSITY
+The following analyses will be used to assess metrics of alpha diversity to address our question about the effects of the treatments on species evenness in the prairie communities.  
+
+## CREATING A RANK ABUNDANCE CURVE
 ```{r}
 RAC <- function(x = ""){
   x.ab = x[x > 0]
@@ -216,7 +232,7 @@ axis(side = 2, las = 1, cex.axis = 1.25,
 par <- opar
 ```
 
-##ALPHA DIVERSITY TESTS
+## ALPHA DIVERSITY TESTS
 ```{r}
 #create observed richness function
 S.obs <- function(x = ""){
@@ -239,9 +255,10 @@ S.chao2 <- function(site = "", SbyS = ""){
 
 ```
 
+## BETA DIVERSITY
+The analyses in this section will assess metrics related to beta diversity and should help to answer our question about the role the treatments play in community structure. 
 
-
-##BETA DIVERSITY AND VISUALIZATION
+## BETA DIVERSITY AND VISUALIZATION
 ```{r}
 beta.w<-function(site.by.species="",sitenum1="",sitenum2="",pairwise=FALSE){
   #IF we specify pairwise as true, function should run this part:
@@ -285,8 +302,9 @@ plot(kbs.ward,main="KBS Early Successional Microsite (2014): Ward's Clustering",
      ylab="Squared Bray-Curtis Dsitance")
 
 ```
+The code above was used to find a beta diversity value for the entire site-by-species complex, create a Bray-Curtis resemblance matrix, and plot a cluster analysis to gain an initial visual assessment of similarities in community composition. The beta diversity value for the entire metacommunity is 5.255; given that beta diversity is a ratio of gamma diversity to alpha diversity, this indicates that any individual site will contain roughly 20% of the species present in the global environment. The cluster analysis (Ward's Clustering) also indicates that the community composition of disturbed and undisturbed communities is quite different; the communities are grouped somewhat within these categories by whether or not they had fertilizer added, but this is not perfectly consistent.
 
-##BIODIVERSITY HYPOTHESIS TESTING
+## BIODIVERSITY HYPOTHESIS TESTING
 ```{r}
 #reorganizing sXspp matrix so it will line up better with factor vector
 #will be using treatments (df, du, uf, uu) as distinct treatment groups
@@ -305,7 +323,7 @@ fert.factor<-c(rep("UNFERT",6),rep("FERT",6),rep("UNFERT",6),rep("FERT",6))
 #will use multivariate/categorical hypothesis tests to look for spp. association
 #w/ particular treatments
 
-#will start with full combo treatments
+#will focus on full combo treatments
 #PERMANOVA - does community comp. differ between treatment combos
 adonis2(sXspp.treat~combo.factor,method="bray",permutations=999)
 #Indicator Value - do any spp. presences indicate particular treatment combo
@@ -313,66 +331,9 @@ combo.indval<-multipatt(sXspp.treat,cluster=combo.factor,func="IndVal.g",
                         control=how(nperm=999))
 summary(combo.indval)
 ```
+The block of code above contains hypothesis tests to assess whether the communities in each factorial treatment group are the same and which species may be indicators of a particular treatment regime. Based on the PERMANOVA test,  we have enough evidence to conclude that community composition is not the same in each of the treatment groups (R^2^ = 0.5743, F~3,20~ = 8.9955, p = 0.001). The indicator value analysis above presents the list of species that are significantly associated with each treatment community.
 
-
-
-##ANNA ATTEMPTS CONSTRAINED ORDINATION - STILL IN PROGRESS
-```{r}
-#attempting constrained ordination
-kbs.dbrda <- dbrda(kbs.db ~ ., as.data.frame(sXspp.treat))
-ordiplot(kbs.dbrda)
-#calculate explained variation
-dbrda.explainedvar1 <- round(kbs.dbrda$CCA$eig[1] /
-                      sum(c(kbs.dbrda$CCA$eig, kbs.dbrda$CA$eig)), 3)*100
-dbrda.explainedvar2 <- round(kbs.dbrda$CCA$eig[2] /
-                      sum(c(kbs.dbrda$CCA$eig, kbs.dbrda$CA$eig)), 3)*100
-#define plot parameters
-par(mar = c(5,5,4,4) + 0.1)
-#initiate plot
-plot(scores(kbs.dbrda, display = "wa"), xlim = c(-1.3, 1.1),
-     ylim = c(-1.1, 2.7), xlab = paste("dbRDA 1 (", dbrda.explainedvar1, "%)",
-     sep = ""), ylab = paste("dbRDA 2 (", dbrda.explainedvar2, "%)", sep = ""),
-     pch = 16, cex = 2.0, type = "n", cex.lab = 1.5,
-     cex.axis = 1.2, axes = FALSE)
-#add axes
-axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
-axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
-abline(h = 0, v = 0, lty = 3)
-box(lwd = 2)
-#add points and labels
-points(scores(kbs.dbrda, display = "wa"), 
-       pch = 19, cex = 3, bg = "gray", col = "gray")
-text(scores(kbs.dbrda, display = "wa"),
-     labels = row.names(scores(kbs.dbrda, display = "wa")))
-#add treatment vectors
-vectors <- scores(kbs.dbrda, display = "bp")
-arrows(0,0, vectors[,1], vectors[,2],
-       lwd = 2, lty = 1, length = 0.8, col = "red")
-axis(side = 3, lwd.ticks = 2, cex.axis = 1.2, las = 1, col = "red", lwd = 2.2,
-     at = pretty(range(vectors[,1])) * 2, labels = pretty(range(vectors[,1])))
-axis(side = 4, lwd.ticks = 2, cex.axis = 1.2, las = 1, col = "red", lwd = 2.2,
-     at = pretty(range(vectors[,2])) * 2, labels = pretty(range(vectors[,2])))
-```
-
-##DISTURBANCE TREATMENTS
-```{r}
-#PERMANOVA - does community comp. differ between disturbed and not
-adonis2(sXspp.treat~dist.factor,method="bray",permutations=999)
-#Indicator Value - do any spp. presences indicate disturbed v. undisturbed
-dist.indval<-multipatt(sXspp.treat,cluster=dist.factor,func="IndVal.g",
-                       control=how(nperm=999))
-summary(dist.indval)
-```
-
-##FERTILIZER TREATMENTS
-```{r}
-#PERMANOVA - does community comp. differ between fertilized and not
-adonis2(sXspp.treat~fert.factor,method="bray",permutations=999)
-#does not seem to show differences between fertilized and unfertilized 
-#communities, so will focus on dist/undist and interaction treatments
-```
-
-##PCoA Code
+## PCoA CODE
 ```{r}
 #first need to create species codes to make ordination legible later
 kbsspplist$spp.code<-c("A.theo","A.mill","A.retr","A.arte","A.cann","A.thal",
@@ -438,4 +399,12 @@ text(kbs.pcoa$cproj[c(17,22,49,53,58),1],kbs.pcoa$cproj[c(17,22,49,53,58),2],
 treat.v<-c("Dist/Unfert","Dist/Fert","Undist/Unfert","Undist/Fert")
 legend(0.25,0.7,treat.v,col=pcoacols,bty="n",cex=0.75,fill=pcoacols)
 ```
+The code block above creates the above PCoA ordination. This figure represents the difference in community composition for each treatment. The ordination also includes codes for the five species that were most strongly associated with particular treatment communities: *Setaria faberi*, *Solidago canadensis*, *Trifolium pratense*, *Cyperus esculentus*, and *Digitaria sanguinalis*. The remainder of the ~18 species that were significantly associated with a specific treatment were clustered in the center of the figure and were hidden to improve legibility. 
 
+Based on the outcomes of hypothesis testing and visualization, I would conclude that the disturbance and nutrient addition treatments have played a role in determining the community composition of these prairie plots. Whether or not a plot was disturbed had a particularly strong influence on community composition, which can be seen along the first PCoA axis (horizontal) in the figure. This matches prior findings that disturbed communities were heavily populated with annual plants, while undisturbed communities contained primarily perennials (Grman et al. 2010, Huberty et al. 1998).
+
+## REFERENCES
+
+Grman, E., Lau, J. A., Schoolmaster, D. R., and K. L. Gross. 2010. Mechanisms contributing to stability in ecosystem function depend on the environmental context. Ecology Letters. 13:1400-1410. 
+Gross, K. and J. Lau. 2022. Plant community and ecosystem responses to long-term fertilization & disturbance at the Kellogg Biological Station, Hickory Corners, MI (1989 to 2019) ver 49. Environmental Data Initiative. <https://doi.org/10.6073/pasta/ea22c735ddfe17c595ccca978a87d109> (Accessed 2023-03-02).
+Huberty, L. E., Gross, K. L., and C. J. Miller. 1998. Effects of nitrogen addition on successional dynamics and species diversity in Michigan old-fields. J. Ecol. 86:794-803.
