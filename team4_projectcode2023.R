@@ -311,7 +311,7 @@ sum.eig<-sum(explvar1,explvar2,explvar3)
 #creating pcoa plot
 #making color vector to color-code treatments
 library(NatParksPalettes)
-pcoacols<-natparks.pals("Yellowstone",4,"discrete")
+pcoacols<-natparks.pals("Triglav",4,"discrete")
 #explanding color vector so it matches treatment labels
 pcoacols.exp<-c(rep(pcoacols[1],6),rep(pcoacols[2],6),rep(pcoacols[3],6),
                 rep(pcoacols[4],6))
@@ -343,12 +343,15 @@ for(i in 1:nrow(sXspp.treat)){
 source("C:/Users/tmzam/OneDrive/Documents/R/Functions_SourceCodes/spec.scores.function.R")
 kbs.pcoa<-add.spec.scores.class(kbs.pcoa,kbsREL,method="pcoa.scores")
 #only plotting names of spp. w/ significant treatment associations
-text(kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,39,47,49,50,51,53,54,
-                      57:59),1],kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,
-                      39,47,49,50,51,53,54,57:59),2],
-     labels=row.names(kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,39,47,49,
-                      50,51,53,54,57:59),]),
-     col="black",cex=0.75)
+#text(kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,39,47,49,50,51,53,54,
+                      #57:59),1],kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,
+                      #39,47,49,50,51,53,54,57:59),2],
+     #labels=row.names(kbs.pcoa$cproj[c(1:3,6,14,16,17,21,22,27,28,38,39,47,49,
+                      #50,51,53,54,57:59),]),
+     #col="black",cex=0.75)
+#only plotting names of spp. that aren't in central cluster of species
+text(kbs.pcoa$cproj[c(17,22,49,53,58),1],kbs.pcoa$cproj[c(17,22,49,53,58),2],
+     labels=row.names(kbs.pcoa$cproj[c(17,22,49,53,58),]),col="black",cex=0.75)
 #Legend stuff
 #treatment vector for legend
 treat.v<-c("Dist/Unfert","Dist/Fert","Undist/Unfert","Undist/Fert")
