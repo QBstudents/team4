@@ -1,0 +1,1091 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={QB Team Project},
+  pdfauthor={Thomas Zambiasi and Anna Werkowski},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{QB Team Project}
+\author{Thomas Zambiasi and Anna Werkowski}
+\date{2023-02-15}
+
+\begin{document}
+\maketitle
+
+\hypertarget{about-the-data}{%
+\subsection{ABOUT THE DATA:}\label{about-the-data}}
+
+The data we are using for this project was collected from the Kellogg
+Biological Station Long Term Ecological Research Site (Hickory Corners,
+MI). Old agricultural fields were repopulated with a natural prairie
+community starting in 1989; in 1990, treatment to assess the effects of
+nitrogen enrichment and disturbance was started. This treatment occurred
+across six replicates and consisted of fully factorial combinations of
+annual tilling/no tilling and fertilizer addition/no fertilizer (Grman
+et al.~2010, Gross and Lau 2022). Several types of data have been
+collected from these plots, including ANPP measures, bulk sample
+biomass, species-specific biomass, and soil inorganic nitrogen. For the
+purposes of our project, we will focus on species-specific biomass
+collected in 2014.
+
+\hypertarget{research-questions}{%
+\subsection{RESEARCH QUESTIONS:}\label{research-questions}}
+
+Using the data from the KBS Early Successional Microplots and the
+techniques we've learned in Quantitative Biodiversity, we hope to
+address the following questions:
+
+\emph{Do disturbance and nutrient addition govern prairie community
+assembly?}
+
+\emph{Do the disturbance and nutrient treatments have an effect on
+prairie community evenness?}
+
+The following code will provide the analyses and figures that we hope to
+use to answer these questions.
+
+\hypertarget{loading-required-packages}{%
+\subsection{LOADING REQUIRED PACKAGES}\label{loading-required-packages}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{package.list }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}BiodiversityR\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}data.table\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dbplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}DescTools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}devtools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dtplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}forcats\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggplot2\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggpubr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggrepel\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggsci\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggsignif\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}gplots\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}indicspecies\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}knitr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}lattice\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}MASS\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}multcomp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}NatParksPalettes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}nlme\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}permute\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RColorBrewer\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rmarkdown\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}SpadeR\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}stats\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tcltk\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tcltk2\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tidyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tidyverse\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}vegan\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}viridis\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (package }\ControlFlowTok{in}\NormalTok{ package.list)\{}
+  \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(package, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{)) \{}
+    \FunctionTok{install.packages}\NormalTok{(package, }\AttributeTok{repos =} \StringTok{\textquotesingle{}https://cran.us.r{-}project.org\textquotesingle{}}\NormalTok{)}
+    \FunctionTok{library}\NormalTok{(package, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## This is vegan 2.6-4
+\end{verbatim}
+
+\begin{verbatim}
+## BiodiversityR 2.15-1: Use command BiodiversityRGUI() to launch the Graphical User Interface; 
+## to see changes use BiodiversityRGUI(changeLog=TRUE, backward.compatibility.messages=TRUE)
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'DescTools'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:data.table':
+## 
+##     %like%
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'devtools'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:permute':
+## 
+##     check
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dbplyr':
+## 
+##     ident, sql
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:data.table':
+## 
+##     between, first, last
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'gplots':
+##   method         from     
+##   reorder.factor DescTools
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gplots'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:DescTools':
+## 
+##     reorder.factor
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     lowess
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'MASS'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     select
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'TH.data'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:MASS':
+## 
+##     geyser
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'NatParksPalettes':
+##   method        from     
+##   print.palette DescTools
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'nlme'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     collapse
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v lubridate 1.9.2     v stringr   1.5.0
+## v purrr     1.0.1     v tibble    3.1.8
+## v readr     2.1.4     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::between()     masks data.table::between()
+## x nlme::collapse()     masks dplyr::collapse()
+## x dplyr::filter()      masks stats::filter()
+## x dplyr::first()       masks data.table::first()
+## x lubridate::hour()    masks data.table::hour()
+## x dplyr::ident()       masks dbplyr::ident()
+## x lubridate::isoweek() masks data.table::isoweek()
+## x dplyr::lag()         masks stats::lag()
+## x dplyr::last()        masks data.table::last()
+## x lubridate::mday()    masks data.table::mday()
+## x lubridate::minute()  masks data.table::minute()
+## x lubridate::month()   masks data.table::month()
+## x lubridate::quarter() masks data.table::quarter()
+## x lubridate::second()  masks data.table::second()
+## x MASS::select()       masks dplyr::select()
+## x dplyr::sql()         masks dbplyr::sql()
+## x purrr::transpose()   masks data.table::transpose()
+## x lubridate::wday()    masks data.table::wday()
+## x lubridate::week()    masks data.table::week()
+## x lubridate::yday()    masks data.table::yday()
+## x lubridate::year()    masks data.table::year()
+## i Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/Users/annawerkowski/Documents/Github/QB2023_Werkowski/team4"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/Users/annawerkowski/Documents/Github/QB2023\_Werkowski/team4"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{loading-dataset}{%
+\subsection{LOADING DATASET}\label{loading-dataset}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kbs\_set\_1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/kbs\_set\_1.csv"}\NormalTok{, }\AttributeTok{sep =} \StringTok{","}\NormalTok{, }\AttributeTok{dec =} \StringTok{"."}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T)}
+\NormalTok{kbsdata1}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/kbs\_set\_1.csv"}\NormalTok{)}
+\CommentTok{\#removing first row (has extra unneeded characters)}
+\NormalTok{kbsdata1}\OtherTok{\textless{}{-}}\NormalTok{kbsdata1[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+\CommentTok{\#isolating relevant data columns}
+\NormalTok{kbsdata2}\OtherTok{\textless{}{-}}\NormalTok{kbsdata1[,}\FunctionTok{c}\NormalTok{(}\StringTok{"replicate"}\NormalTok{,}\StringTok{"disturbed"}\NormalTok{,}\StringTok{"fertilized"}\NormalTok{,}
+                      \StringTok{"species.name"}\NormalTok{,}\StringTok{"biomass\_g\_m2"}\NormalTok{)]}
+\CommentTok{\#sites will be determined by rep+treatment combo}
+\CommentTok{\#need to combine rep+treatment combos into single label column}
+\NormalTok{kbsdata2}\SpecialCharTok{$}\NormalTok{site}\OtherTok{\textless{}{-}}\FunctionTok{paste}\NormalTok{(kbsdata2}\SpecialCharTok{$}\NormalTok{replicate,kbsdata2}\SpecialCharTok{$}\NormalTok{disturbed,kbsdata2}\SpecialCharTok{$}\NormalTok{fertilized)}
+\CommentTok{\#rearranging data again}
+\NormalTok{kbsdata3}\OtherTok{\textless{}{-}}\NormalTok{kbsdata2[,}\FunctionTok{c}\NormalTok{(}\StringTok{"site"}\NormalTok{,}\StringTok{"species.name"}\NormalTok{,}\StringTok{"biomass\_g\_m2"}\NormalTok{)]}
+\CommentTok{\#creating list of sites }
+\NormalTok{kbssitelist}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{unique}\NormalTok{(kbsdata3}\SpecialCharTok{$}\NormalTok{site))}
+\CommentTok{\#creating list of species}
+\NormalTok{kbsspplist}\OtherTok{\textless{}{-}}\FunctionTok{unique}\NormalTok{(kbsdata3}\SpecialCharTok{$}\NormalTok{species.name)}
+\CommentTok{\#reworking into dataframe}
+\NormalTok{kbsspplist}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(kbsspplist,)}
+\CommentTok{\#renaming column to be able to join matrix components easier}
+\FunctionTok{colnames}\NormalTok{(kbsspplist)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creating-site-by-species-matrix}{%
+\subsection{CREATING SITE BY SPECIES
+MATRIX}\label{creating-site-by-species-matrix}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#creating site{-}specific data and adding to sXspp. by spp. name, steps}
+\CommentTok{\#repeat for each site}
+\CommentTok{\#r1, dist. unfert.}
+\NormalTok{R1du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R1 disturbed unfertilized"}\NormalTok{,] }\CommentTok{\#isolating site data}
+\NormalTok{R1du}\OtherTok{\textless{}{-}}\NormalTok{R1du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{] }\CommentTok{\#removing site column}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(kbsspplist,R1du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{) }\CommentTok{\#joining to spp. list}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{) }\CommentTok{\#renaming sXspp columns}
+\CommentTok{\#r1, dist. fert.}
+\NormalTok{R1df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R1 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R1df}\OtherTok{\textless{}{-}}\NormalTok{R1df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R1df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{)}
+\CommentTok{\#r1, undist. unfert.}
+\NormalTok{R1uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R1 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R1uu}\OtherTok{\textless{}{-}}\NormalTok{R1uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R1uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{)}
+\CommentTok{\#r1, undist. fert.}
+\NormalTok{R1uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R1 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R1uf}\OtherTok{\textless{}{-}}\NormalTok{R1uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R1uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{)}
+\CommentTok{\#r2, dist. unfert.}
+\NormalTok{R2du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R2 disturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R2du}\OtherTok{\textless{}{-}}\NormalTok{R2du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R2du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{)}
+\CommentTok{\#r2, dist. fert.}
+\NormalTok{R2df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R2 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R2df}\OtherTok{\textless{}{-}}\NormalTok{R2df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R2df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{)}
+\CommentTok{\#r2, undist. unfert.}
+\NormalTok{R2uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R2 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R2uu}\OtherTok{\textless{}{-}}\NormalTok{R2uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R2uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{)}
+\CommentTok{\#r2, undist. fert.}
+\NormalTok{R2uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R2 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R2uf}\OtherTok{\textless{}{-}}\NormalTok{R2uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R2uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{)}
+\CommentTok{\#r3, dist. unfert.}
+\NormalTok{R3du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R3 disturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R3du}\OtherTok{\textless{}{-}}\NormalTok{R3du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R3du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{)}
+\CommentTok{\#r3, dist. fert.}
+\NormalTok{R3df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R3 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R3df}\OtherTok{\textless{}{-}}\NormalTok{R3df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R3df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{)}
+\CommentTok{\#r3, undist. unfert.}
+\NormalTok{R3uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R3 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R3uu}\OtherTok{\textless{}{-}}\NormalTok{R3uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R3uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{)}
+\CommentTok{\#r3, undist. fert.}
+\NormalTok{R3uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R3 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R3uf}\OtherTok{\textless{}{-}}\NormalTok{R3uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R3uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{)}
+\CommentTok{\#r4, dist. unfert.}
+\NormalTok{R4du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R4 disturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R4du}\OtherTok{\textless{}{-}}\NormalTok{R4du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R4du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{)}
+\CommentTok{\#r4, dist. fert.}
+\NormalTok{R4df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R4 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R4df}\OtherTok{\textless{}{-}}\NormalTok{R4df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R4df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{)}
+\CommentTok{\#r4, undist. unfert.}
+\NormalTok{R4uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R4 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R4uu}\OtherTok{\textless{}{-}}\NormalTok{R4uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R4uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{)}
+\CommentTok{\#r4, undist. fert.}
+\NormalTok{R4uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R4 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R4uf}\OtherTok{\textless{}{-}}\NormalTok{R4uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R4uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{)}
+\CommentTok{\#r5, dist. unfert.}
+\NormalTok{R5du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R5 disturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R5du}\OtherTok{\textless{}{-}}\NormalTok{R5du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R5du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{)}
+\CommentTok{\#r5, dist. fert.}
+\NormalTok{R5df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R5 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R5df}\OtherTok{\textless{}{-}}\NormalTok{R5df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R5df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{)}
+\CommentTok{\#r5, undist. unfert.}
+\NormalTok{R5uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R5 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R5uu}\OtherTok{\textless{}{-}}\NormalTok{R5uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R5uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{)}
+\CommentTok{\#r5, undist. fert.}
+\NormalTok{R5uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R5 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R5uf}\OtherTok{\textless{}{-}}\NormalTok{R5uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R5uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{)}
+\CommentTok{\#r6, dist. unfert.}
+\NormalTok{R6du}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R6 disturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R6du}\OtherTok{\textless{}{-}}\NormalTok{R6du[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R6du,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{,}\StringTok{"R6du"}\NormalTok{)}
+\CommentTok{\#r6, dist. fert.}
+\NormalTok{R6df}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R6 disturbed fertilized"}\NormalTok{,]}
+\NormalTok{R6df}\OtherTok{\textless{}{-}}\NormalTok{R6df[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R6df,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{,}\StringTok{"R6du"}\NormalTok{,}\StringTok{"R6df"}\NormalTok{)}
+\CommentTok{\#r6, undist. unfert.}
+\NormalTok{R6uu}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R6 undisturbed unfertilized"}\NormalTok{,]}
+\NormalTok{R6uu}\OtherTok{\textless{}{-}}\NormalTok{R6uu[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R6uu,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{,}\StringTok{"R6du"}\NormalTok{,}\StringTok{"R6df"}\NormalTok{,}
+                   \StringTok{"R6uu"}\NormalTok{)}
+\CommentTok{\#r6, undist. fert.}
+\NormalTok{R6uf}\OtherTok{\textless{}{-}}\NormalTok{kbsdata3[kbsdata3}\SpecialCharTok{$}\NormalTok{site}\SpecialCharTok{==}\StringTok{"R6 undisturbed fertilized"}\NormalTok{,]}
+\NormalTok{R6uf}\OtherTok{\textless{}{-}}\NormalTok{R6uf[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{left\_join}\NormalTok{(sXspp,R6uf,}\AttributeTok{by=}\StringTok{"species.name"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"species.name"}\NormalTok{,}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R1df"}\NormalTok{,}\StringTok{"R1uu"}\NormalTok{,}\StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}
+                   \StringTok{"R2uu"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}
+                   \StringTok{"R4uu"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{,}\StringTok{"R6du"}\NormalTok{,}\StringTok{"R6df"}\NormalTok{,}
+                   \StringTok{"R6uu"}\NormalTok{,}\StringTok{"R6uf"}\NormalTok{)}
+\CommentTok{\#converting column 1 to row names (species names)}
+\FunctionTok{row.names}\NormalTok{(sXspp)}\OtherTok{\textless{}{-}}\NormalTok{sXspp}\SpecialCharTok{$}\NormalTok{species.name}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\NormalTok{sXspp[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#converting all NAs to zeros}
+\NormalTok{sXspp[}\FunctionTok{is.na}\NormalTok{(sXspp)]}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\#converting to numeric (columns all chr)}
+\NormalTok{sXspp}\OtherTok{\textless{}{-}}\FunctionTok{mutate\_all}\NormalTok{(sXspp,}\ControlFlowTok{function}\NormalTok{(x)}\FunctionTok{as.numeric}\NormalTok{(x))}
+\CommentTok{\#also need to convert to matrix and transform}
+\NormalTok{sXspp.mtx}\OtherTok{\textless{}{-}}\FunctionTok{t}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(sXspp))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{alpha-diversity}{%
+\subsection{ALPHA DIVERSITY}\label{alpha-diversity}}
+
+The following analyses will be used to assess metrics of alpha diversity
+to address our question about the effects of the treatments on species
+evenness in the prairie communities.
+
+\hypertarget{creating-a-rank-abundance-curve}{%
+\subsection{CREATING A RANK ABUNDANCE
+CURVE}\label{creating-a-rank-abundance-curve}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RAC }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{)\{}
+\NormalTok{  x.ab }\OtherTok{=}\NormalTok{ x[x }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{]}
+\NormalTok{  x.ab.ranked }\OtherTok{=}\NormalTok{ x.ab[}\FunctionTok{order}\NormalTok{(x.ab, }\AttributeTok{decreasing =} \ConstantTok{TRUE}\NormalTok{)]}
+  \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(x.ab.ranked, unlist))}
+  \FunctionTok{return}\NormalTok{(x.ab.ranked)}
+\NormalTok{\}}
+
+\CommentTok{\#generating a rank abundance curve for a single site}
+\FunctionTok{plot.new}\NormalTok{()}
+\NormalTok{site1 }\OtherTok{\textless{}{-}}\NormalTok{ sXspp[}\DecValTok{1}\NormalTok{, ] }
+\NormalTok{rac }\OtherTok{\textless{}{-}} \FunctionTok{RAC}\NormalTok{(}\AttributeTok{x =}\NormalTok{ site1)}
+\NormalTok{ranks }\OtherTok{\textless{}{-}} \FunctionTok{as.vector}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FunctionTok{length}\NormalTok{(rac)))}
+\NormalTok{opar }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{no.readonly =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\FloatTok{5.1}\NormalTok{, }\FloatTok{5.1}\NormalTok{, }\FloatTok{4.1}\NormalTok{, }\FloatTok{2.1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(ranks, }\FunctionTok{log}\NormalTok{(rac), }\AttributeTok{type =} \StringTok{\textquotesingle{}p\textquotesingle{}}\NormalTok{, }\AttributeTok{axes =}\NormalTok{ F,}
+     \AttributeTok{xlab =} \StringTok{"Rank in Abundance"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Abundance"}\NormalTok{,}
+     \AttributeTok{las =} \DecValTok{1}\NormalTok{, }\AttributeTok{cex.lab =} \FloatTok{1.4}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{)}
+\FunctionTok{box}\NormalTok{()}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side =} \DecValTok{1}\NormalTok{, }\AttributeTok{labels =}\NormalTok{ T, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{)}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side =} \DecValTok{2}\NormalTok{, }\AttributeTok{las =} \DecValTok{1}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{,}
+     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{), }\AttributeTok{at =} \FunctionTok{log}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final_Rmarkdown_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{par }\OtherTok{\textless{}{-}}\NormalTok{ opar}
+\end{Highlighting}
+\end{Shaded}
+
+The code that was run above shows the rank abundance curve for one site
+out of the entire site by species matrix. Rank abundance curves are used
+to visualize evenness as well as richness. The evenness of our
+population can be determined based on the slop of the line. From our
+site 1 rank abundance curve, we can determine that there are many
+species ranking the same in this site, contributing to a shallower slope
+and a higher evenness value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#generating a rank abundance curve for the entire site by species matrix}
+\FunctionTok{plot.new}\NormalTok{()}
+\NormalTok{rac }\OtherTok{\textless{}{-}} \FunctionTok{RAC}\NormalTok{(}\AttributeTok{x =}\NormalTok{ sXspp)}
+\NormalTok{ranks }\OtherTok{\textless{}{-}} \FunctionTok{as.vector}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FunctionTok{length}\NormalTok{(rac)))}
+\NormalTok{opar }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{no.readonly =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\FloatTok{5.1}\NormalTok{, }\FloatTok{5.1}\NormalTok{, }\FloatTok{4.1}\NormalTok{, }\FloatTok{2.1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(ranks, }\FunctionTok{log}\NormalTok{(rac), }\AttributeTok{type =} \StringTok{\textquotesingle{}p\textquotesingle{}}\NormalTok{, }\AttributeTok{axes =}\NormalTok{ F,}
+     \AttributeTok{xlab =} \StringTok{"Rank in Abundance"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Abundance"}\NormalTok{,}
+     \AttributeTok{las =} \DecValTok{1}\NormalTok{, }\AttributeTok{cex.lab =} \FloatTok{1.4}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{)}
+\FunctionTok{box}\NormalTok{()}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side =} \DecValTok{1}\NormalTok{, }\AttributeTok{labels =}\NormalTok{ T, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{)}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side =} \DecValTok{2}\NormalTok{, }\AttributeTok{las =} \DecValTok{1}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{1.25}\NormalTok{,}
+     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{), }\AttributeTok{at =} \FunctionTok{log}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final_Rmarkdown_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{par }\OtherTok{\textless{}{-}}\NormalTok{ opar}
+\end{Highlighting}
+\end{Shaded}
+
+Unlike the single site rank abundance curve, the entire site by species
+matrix shows some very different results. I would categorize the slop of
+this line as steep, with more high-ranking individuals also being higher
+in relative abundance overall. Due to this, we can say that there is an
+overall low evenness for the entire population sampled. On an individual
+site by site basis, the evenness is different, which is most likely
+being contributed to by the different treatments that the sites are
+receiving.
+
+\hypertarget{alpha-diversity-tests}{%
+\subsection{ALPHA DIVERSITY TESTS}\label{alpha-diversity-tests}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#create observed richness function}
+\NormalTok{S.obs }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{)\{}
+  \FunctionTok{rowSums}\NormalTok{(x }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{*} \DecValTok{1}
+\NormalTok{\}}
+\CommentTok{\#run analyses for Shannon, Simpson, and Hill numbers}
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ kbs\_set\_1[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+
+\CommentTok{\#transform to wide format }
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{biomass\_g\_m2 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{biomass\_g\_m2)}
+\NormalTok{speciesmatrix }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(species.name, replicate, disturbed, fertilized, biomass\_g\_m2)  }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ species.name, }\AttributeTok{values\_from =}\NormalTok{ biomass\_g\_m2, }
+              \AttributeTok{values\_fill =} \FunctionTok{list}\NormalTok{(}\AttributeTok{biomass\_g\_m2 =} \DecValTok{0}\NormalTok{)) }
+
+
+\CommentTok{\#Calculate Hill numbers and create new data set }
+\CommentTok{\#hill = 0}
+\NormalTok{richness }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(speciesmatrix[,}\DecValTok{4}\SpecialCharTok{:}\DecValTok{63}\NormalTok{], }\DecValTok{1}\NormalTok{, specnumber)}
+
+\CommentTok{\#hill = 1 }
+\NormalTok{expShannonfunction }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}\FunctionTok{exp}\NormalTok{(}\FunctionTok{diversity}\NormalTok{(x, }\AttributeTok{index =}\StringTok{"shannon"}\NormalTok{))\}}
+\NormalTok{expShannon }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(speciesmatrix[,}\DecValTok{4}\SpecialCharTok{:}\DecValTok{63}\NormalTok{], }\DecValTok{1}\NormalTok{, expShannonfunction)}
+
+\CommentTok{\#hill = 2}
+\NormalTok{invSimpsonfunction }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{diversity}\NormalTok{(x, }\AttributeTok{index =}\StringTok{"simpson"}\NormalTok{))\}}
+\NormalTok{invSimpson }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(speciesmatrix[,}\DecValTok{4}\SpecialCharTok{:}\DecValTok{63}\NormalTok{], }\DecValTok{1}\NormalTok{, invSimpsonfunction)}
+
+\CommentTok{\#Create a data set with factors and the diversity indices }
+\NormalTok{altogether }\OtherTok{\textless{}{-}} \FunctionTok{cbind.data.frame}\NormalTok{(speciesmatrix, richness, expShannon, invSimpson)}
+
+\CommentTok{\#Calculate mean and standard deviation for the replicates}
+\NormalTok{altogetherSum }\OtherTok{\textless{}{-}}\NormalTok{ altogether }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(}\StringTok{"richness"}\NormalTok{, }\StringTok{"expShannon"}\NormalTok{, }\StringTok{"invSimpson"}\NormalTok{), }
+               \AttributeTok{names\_to =} \StringTok{"index"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"diversity"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(index, disturbed, fertilized) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{meanDiversity =} \FunctionTok{mean}\NormalTok{(diversity), }\AttributeTok{sdDiversity =} \FunctionTok{sd}\NormalTok{(diversity))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'index', 'disturbed'. You can override
+## using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Plot data using ggplots}
+\FunctionTok{ggplot}\NormalTok{(altogetherSum, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ disturbed, }\AttributeTok{y =}\NormalTok{ meanDiversity, }\AttributeTok{color =}\NormalTok{ fertilized)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ meanDiversity }\SpecialCharTok{{-}}\NormalTok{ sdDiversity, }\AttributeTok{ymax=}\NormalTok{ meanDiversity }\SpecialCharTok{+}\NormalTok{ sdDiversity),}
+  \AttributeTok{width=}\NormalTok{.}\DecValTok{2}\NormalTok{,}\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{facet\_grid}\NormalTok{(.}\SpecialCharTok{\textasciitilde{}}\NormalTok{index) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final_Rmarkdown_files/figure-latex/unnamed-chunk-6-1.pdf}
+Using the Hill numbers section of the binder, I was able to create
+diversity indices using the richness, exponential Shannon, and inverse
+Simpson functions. By plotting, we can see that the richness index has
+the most signficiant results. From that portion of the graph we can see
+that undisturbed and unfertilized as well as disturbed and unfertilized
+plots had the highest richness values. Unfertilized plots had higher
+richness values overall. I believe that this is because fertilizers
+benefit certain plants over others, contributing to a less diverse plant
+population. We only looked at data taken in 2014 but it would
+potentially be a more telling story if these indices were evaluated over
+the entire 30 year period.
+
+\hypertarget{beta-diversity}{%
+\subsection{BETA DIVERSITY}\label{beta-diversity}}
+
+The analyses in this section will assess metrics related to beta
+diversity and should help to answer our question about the role the
+treatments play in community structure.
+
+\hypertarget{beta-diversity-and-visualization}{%
+\subsection{BETA DIVERSITY AND
+VISUALIZATION}\label{beta-diversity-and-visualization}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{beta.w}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(}\AttributeTok{site.by.species=}\StringTok{""}\NormalTok{,}\AttributeTok{sitenum1=}\StringTok{""}\NormalTok{,}\AttributeTok{sitenum2=}\StringTok{""}\NormalTok{,}\AttributeTok{pairwise=}\ConstantTok{FALSE}\NormalTok{)\{}
+  \CommentTok{\#IF we specify pairwise as true, function should run this part:}
+  \ControlFlowTok{if}\NormalTok{(pairwise}\SpecialCharTok{==}\ConstantTok{TRUE}\NormalTok{)\{}
+    \CommentTok{\#code to print an error if we don\textquotesingle{}t give necessary arguments}
+    \ControlFlowTok{if}\NormalTok{(sitenum1}\SpecialCharTok{==}\StringTok{""}\SpecialCharTok{|}\NormalTok{sitenum2}\SpecialCharTok{==}\StringTok{""}\NormalTok{)\{}
+      \FunctionTok{print}\NormalTok{(}\StringTok{"Error: you need to specify some sites to compare"}\NormalTok{)}
+      \FunctionTok{return}\NormalTok{(}\ConstantTok{NA}\NormalTok{)}
+\NormalTok{    \}}
+    \CommentTok{\#now code for calculating pairwise beta diversity}
+\NormalTok{    site1}\OtherTok{=}\NormalTok{site.by.species[sitenum1,] }\CommentTok{\#selecting site 1}
+\NormalTok{    site2}\OtherTok{=}\NormalTok{site.by.species[sitenum2,] }\CommentTok{\#selecting site 2}
+\NormalTok{    site1}\OtherTok{=}\FunctionTok{subset}\NormalTok{(site1,}\AttributeTok{select=}\NormalTok{site1}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{) }\CommentTok{\#removes absences in site 1}
+\NormalTok{    site2}\OtherTok{=}\FunctionTok{subset}\NormalTok{(site2,}\AttributeTok{select=}\NormalTok{site2}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{) }\CommentTok{\#removes absences in site 2}
+\NormalTok{    gamma}\OtherTok{=}\FunctionTok{union}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(site1),}\FunctionTok{colnames}\NormalTok{(site2)) }\CommentTok{\#creates gamma species pool}
+\NormalTok{    s}\OtherTok{=}\FunctionTok{length}\NormalTok{(gamma) }\CommentTok{\#gamma richness}
+\NormalTok{    a.bar}\OtherTok{=}\FunctionTok{mean}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{specnumber}\NormalTok{(site1),}\FunctionTok{specnumber}\NormalTok{(site2))) }\CommentTok{\#mean sample richness}
+\NormalTok{    b.w}\OtherTok{=}\FunctionTok{round}\NormalTok{(s}\SpecialCharTok{/}\NormalTok{a.bar}\DecValTok{{-}1}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+    \FunctionTok{return}\NormalTok{(b.w)}
+\NormalTok{  \}}
+  \CommentTok{\#otherwise, function defaults to false and runs this:}
+\NormalTok{  SbyS.pa}\OtherTok{\textless{}{-}}\FunctionTok{decostand}\NormalTok{(site.by.species,}\AttributeTok{method=}\StringTok{"pa"}\NormalTok{) }\CommentTok{\#convert to presence/absence}
+\NormalTok{  S}\OtherTok{\textless{}{-}}\FunctionTok{ncol}\NormalTok{(SbyS.pa[,}\FunctionTok{which}\NormalTok{(}\FunctionTok{colSums}\NormalTok{(SbyS.pa)}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{)]) }\CommentTok{\#number of species in the region}
+\NormalTok{  a.bar}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(}\FunctionTok{specnumber}\NormalTok{(SbyS.pa)) }\CommentTok{\#average richness at each site}
+\NormalTok{  b.w}\OtherTok{\textless{}{-}}\FunctionTok{round}\NormalTok{(S}\SpecialCharTok{/}\NormalTok{a.bar,}\DecValTok{3}\NormalTok{) }\CommentTok{\#rounding to 3 decimals}
+  \FunctionTok{return}\NormalTok{(b.w)}
+\NormalTok{\}}
+
+\CommentTok{\#finding b{-}diversity value across whole sXspp matrix}
+\FunctionTok{beta.w}\NormalTok{(sXspp.mtx,}\AttributeTok{pairwise=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.255
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#building resemblance matrix using Bray{-}Curtis}
+\NormalTok{kbs.db}\OtherTok{\textless{}{-}}\FunctionTok{vegdist}\NormalTok{(sXspp.mtx,}\AttributeTok{method=}\StringTok{"bray"}\NormalTok{)}
+\NormalTok{kbs.db}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            R1du       R1df       R1uu       R1uf       R2du       R2df
+## R1df 0.69848198                                                       
+## R1uu 0.99990540 0.99987327                                            
+## R1uf 1.00000000 0.99921629 0.78983122                                 
+## R2du 0.26199674 0.53054174 0.99991991 1.00000000                      
+## R2df 0.62590889 0.32392392 0.99994877 0.99998097 0.45012252           
+## R2uu 0.99998463 0.99897721 0.75383526 0.72846799 0.99998625 0.99999008
+## R2uf 1.00000000 1.00000000 0.87204800 0.81115993 1.00000000 0.99998518
+## R3du 0.30520600 0.74050577 1.00000000 1.00000000 0.29979471 0.65938930
+## R3df 0.73317660 0.29482139 0.99993205 1.00000000 0.49867343 0.22194218
+## R3uu 1.00000000 0.99997908 0.74507337 0.73862487 1.00000000 1.00000000
+## R3uf 1.00000000 1.00000000 0.79071886 0.74524882 1.00000000 0.99998014
+## R4du 0.43885433 0.65704935 1.00000000 1.00000000 0.25139136 0.62608374
+## R4df 0.72042469 0.39766327 1.00000000 1.00000000 0.53551817 0.14935562
+## R4uu 1.00000000 1.00000000 0.74549487 0.69595210 1.00000000 1.00000000
+## R4uf 1.00000000 1.00000000 0.85589399 0.78470166 1.00000000 0.99998375
+## R5du 0.78246137 0.38454027 0.99978151 0.99994773 0.56993698 0.12238135
+## R5df 0.74561735 0.44794423 1.00000000 1.00000000 0.58067508 0.19370436
+## R5uu 1.00000000 0.99870335 0.58040077 0.61805779 1.00000000 1.00000000
+## R5uf 1.00000000 0.99879499 0.94695735 0.59504232 1.00000000 0.99997637
+## R6du 0.57603944 0.45015028 0.99967115 0.99993646 0.32431014 0.44621289
+## R6df 0.75754055 0.39026143 0.99953080 0.99995370 0.58143407 0.14494648
+## R6uu 0.99889246 0.99812973 0.72208695 0.99212950 0.99904529 0.99936638
+## R6uf 1.00000000 0.99891129 0.80172152 0.86699688 1.00000000 1.00000000
+##            R2uu       R2uf       R3du       R3df       R3uu       R3uf
+## R1df                                                                  
+## R1uu                                                                  
+## R1uf                                                                  
+## R2du                                                                  
+## R2df                                                                  
+## R2uu                                                                  
+## R2uf 0.52257409                                                       
+## R3du 1.00000000 1.00000000                                            
+## R3df 0.99998775 1.00000000 0.63545060                                 
+## R3uu 0.51930315 0.72865630 0.99998182 0.99997354                      
+## R3uf 0.36414482 0.54410115 1.00000000 1.00000000 0.59658735           
+## R4du 1.00000000 1.00000000 0.22250941 0.53144857 0.99998283 1.00000000
+## R4df 1.00000000 1.00000000 0.66059958 0.21587086 1.00000000 1.00000000
+## R4uu 0.66997054 0.81208594 1.00000000 1.00000000 0.62962485 0.65521818
+## R4uf 0.65939794 0.76395716 1.00000000 1.00000000 0.69824277 0.61567316
+## R5du 1.00000000 1.00000000 0.69943309 0.15699628 0.99997657 1.00000000
+## R5df 1.00000000 1.00000000 0.68518906 0.27871901 1.00000000 1.00000000
+## R5uu 0.44128357 0.68697594 1.00000000 1.00000000 0.42641156 0.52624784
+## R5uf 0.91339364 0.99655800 1.00000000 1.00000000 0.98643432 0.97908662
+## R6du 0.99998657 1.00000000 0.55021057 0.38109958 0.99997076 1.00000000
+## R6df 0.99999036 1.00000000 0.78406518 0.27441404 0.99998976 1.00000000
+## R6uu 0.90372485 0.99545326 0.99963515 0.99916196 0.75925188 0.93823416
+## R6uf 0.78767231 0.89814619 1.00000000 1.00000000 0.84233214 0.69366947
+##            R4du       R4df       R4uu       R4uf       R5du       R5df
+## R1df                                                                  
+## R1uu                                                                  
+## R1uf                                                                  
+## R2du                                                                  
+## R2df                                                                  
+## R2uu                                                                  
+## R2uf                                                                  
+## R3du                                                                  
+## R3df                                                                  
+## R3uu                                                                  
+## R3uf                                                                  
+## R4du                                                                  
+## R4df 0.53224433                                                       
+## R4uu 1.00000000 1.00000000                                            
+## R4uf 1.00000000 1.00000000 0.74475712                                 
+## R5du 0.62286661 0.13797367 1.00000000 1.00000000                      
+## R5df 0.60988638 0.14165538 1.00000000 1.00000000 0.19844496           
+## R5uu 1.00000000 1.00000000 0.53056665 0.65706661 0.99978557 1.00000000
+## R5uf 1.00000000 1.00000000 0.95918829 0.98702703 1.00000000 1.00000000
+## R6du 0.43947611 0.49169583 1.00000000 1.00000000 0.46196963 0.55225945
+## R6df 0.70803109 0.18229807 1.00000000 1.00000000 0.17694932 0.09765351
+## R6uu 0.99966036 0.99981709 0.93555047 0.97032911 0.99958235 0.99983445
+## R6uf 1.00000000 1.00000000 0.80226659 0.77285026 0.99982409 1.00000000
+##            R5uu       R5uf       R6du       R6df       R6uu
+## R1df                                                       
+## R1uu                                                       
+## R1uf                                                       
+## R2du                                                       
+## R2df                                                       
+## R2uu                                                       
+## R2uf                                                       
+## R3du                                                       
+## R3df                                                       
+## R3uu                                                       
+## R3uf                                                       
+## R4du                                                       
+## R4df                                                       
+## R4uu                                                       
+## R4uf                                                       
+## R5du                                                       
+## R5df                                                       
+## R5uu                                                       
+## R5uf 0.87437195                                            
+## R6du 0.99975469 1.00000000                                 
+## R6df 0.99980556 1.00000000 0.50378761                      
+## R6uu 0.83317446 0.97810879 0.99883005 0.99898337           
+## R6uf 0.78846211 0.60768912 0.99980970 0.99965166 0.94982049
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#setting up cluster analysis }
+\NormalTok{kbs.ward}\OtherTok{\textless{}{-}}\FunctionTok{hclust}\NormalTok{(kbs.db,}\AttributeTok{method=}\StringTok{"ward.D2"}\NormalTok{)}
+\CommentTok{\#cluster analysis figure}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}\SpecialCharTok{+}\FloatTok{0.1}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(kbs.ward,}\AttributeTok{main=}\StringTok{"KBS Early Successional Microsite (2014): Ward\textquotesingle{}s Clustering"}\NormalTok{,}
+     \AttributeTok{ylab=}\StringTok{"Squared Bray{-}Curtis Dsitance"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final_Rmarkdown_files/figure-latex/unnamed-chunk-7-1.pdf}
+The code above was used to find a beta diversity value for the entire
+site-by-species complex, create a Bray-Curtis resemblance matrix, and
+plot a cluster analysis to gain an initial visual assessment of
+similarities in community composition. The beta diversity value for the
+entire metacommunity is 5.255; given that beta diversity is a ratio of
+gamma diversity to alpha diversity, this indicates that any individual
+site will contain roughly 20\% of the species present in the global
+environment. The cluster analysis (Ward's Clustering) also indicates
+that the community composition of disturbed and undisturbed communities
+is quite different; the communities are grouped somewhat within these
+categories by whether or not they had fertilizer added, but this is not
+perfectly consistent.
+
+\hypertarget{biodiversity-hypothesis-testing}{%
+\subsection{BIODIVERSITY HYPOTHESIS
+TESTING}\label{biodiversity-hypothesis-testing}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#reorganizing sXspp matrix so it will line up better with factor vector}
+\CommentTok{\#will be using treatments (df, du, uf, uu) as distinct treatment groups}
+\NormalTok{sXspp.treat}\OtherTok{\textless{}{-}}\NormalTok{sXspp.mtx[}\FunctionTok{c}\NormalTok{(}\StringTok{"R1du"}\NormalTok{,}\StringTok{"R2du"}\NormalTok{,}\StringTok{"R3du"}\NormalTok{,}\StringTok{"R4du"}\NormalTok{,}\StringTok{"R5du"}\NormalTok{,}\StringTok{"R6du"}\NormalTok{,}
+                         \StringTok{"R1df"}\NormalTok{,}\StringTok{"R2df"}\NormalTok{,}\StringTok{"R3df"}\NormalTok{,}\StringTok{"R4df"}\NormalTok{,}\StringTok{"R5df"}\NormalTok{,}\StringTok{"R6df"}\NormalTok{,}
+                         \StringTok{"R1uu"}\NormalTok{,}\StringTok{"R2uu"}\NormalTok{,}\StringTok{"R3uu"}\NormalTok{,}\StringTok{"R4uu"}\NormalTok{,}\StringTok{"R5uu"}\NormalTok{,}\StringTok{"R6uu"}\NormalTok{,}
+                         \StringTok{"R1uf"}\NormalTok{,}\StringTok{"R2uf"}\NormalTok{,}\StringTok{"R3uf"}\NormalTok{,}\StringTok{"R4uf"}\NormalTok{,}\StringTok{"R5uf"}\NormalTok{,}\StringTok{"R6uf"}\NormalTok{),]}
+\CommentTok{\#Will make three factor vectors; one for treat combo, one for each individually}
+\CommentTok{\#treatment combo factors}
+\NormalTok{combo.factor}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"DU"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"DF"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"UU"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"UF"}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\CommentTok{\#disturbance factors}
+\NormalTok{dist.factor}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"DIST"}\NormalTok{,}\DecValTok{12}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"UNDIST"}\NormalTok{,}\DecValTok{12}\NormalTok{))}
+\CommentTok{\#fertilizer factors}
+\NormalTok{fert.factor}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"UNFERT"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"FERT"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"UNFERT"}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\StringTok{"FERT"}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+
+\CommentTok{\#will use multivariate/categorical hypothesis tests to look for spp. association}
+\CommentTok{\#w/ particular treatments}
+
+\CommentTok{\#will focus on full combo treatments}
+\CommentTok{\#PERMANOVA {-} does community comp. differ between treatment combos}
+\FunctionTok{adonis2}\NormalTok{(sXspp.treat}\SpecialCharTok{\textasciitilde{}}\NormalTok{combo.factor,}\AttributeTok{method=}\StringTok{"bray"}\NormalTok{,}\AttributeTok{permutations=}\DecValTok{999}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Permutation test for adonis under reduced model
+## Terms added sequentially (first to last)
+## Permutation: free
+## Number of permutations: 999
+## 
+## adonis2(formula = sXspp.treat ~ combo.factor, permutations = 999, method = "bray")
+##              Df SumOfSqs      R2      F Pr(>F)    
+## combo.factor  3   4.7811 0.57434 8.9955  0.001 ***
+## Residual     20   3.5433 0.42566                  
+## Total        23   8.3244 1.00000                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Indicator Value {-} do any spp. presences indicate particular treatment combo}
+\NormalTok{combo.indval}\OtherTok{\textless{}{-}}\FunctionTok{multipatt}\NormalTok{(sXspp.treat,}\AttributeTok{cluster=}\NormalTok{combo.factor,}\AttributeTok{func=}\StringTok{"IndVal.g"}\NormalTok{,}
+                        \AttributeTok{control=}\FunctionTok{how}\NormalTok{(}\AttributeTok{nperm=}\DecValTok{999}\NormalTok{))}
+\FunctionTok{summary}\NormalTok{(combo.indval)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Multilevel pattern analysis
+##  ---------------------------
+## 
+##  Association function: IndVal.g
+##  Significance level (alpha): 0.05
+## 
+##  Total number of species: 60
+##  Selected number of species: 22 
+##  Number of species associated to 1 group: 15 
+##  Number of species associated to 2 groups: 7 
+##  Number of species associated to 3 groups: 0 
+## 
+##  List of species associated to each combination: 
+## 
+##  Group DU  #sps.  3 
+##                                                             stat p.value    
+## Digitaria ischaemum (Schreb. Ex Schweig.) Schreb. ex Muhl. 0.976   0.001 ***
+## Setaria pumila (Poir.) Roem. & Schult                      0.778   0.018 *  
+## Arabidopsis thaliana (L.) Heynh.                           0.707   0.038 *  
+## 
+##  Group UF  #sps.  2 
+##                                   stat p.value    
+## Silene alba (Mill.) E.H.L.Krause 0.913   0.001 ***
+## Rumex crispus L.                 0.913   0.002 ** 
+## 
+##  Group UU  #sps.  10 
+##                                                     stat p.value    
+## Poa pratensis L.                                   0.996   0.001 ***
+## Trifolium pratense L.                              0.969   0.001 ***
+## Trifolium repens L.                                0.783   0.026 *  
+## Achillea millefolium L.                            0.707   0.038 *  
+## Hieracium sp. (*)                                  0.707   0.038 *  
+## Hypericum perforatum L.                            0.707   0.043 *  
+## Poa compressa L.                                   0.707   0.042 *  
+## Trifolium hybridum L. (*)                          0.707   0.038 *  
+## Taraxacum officinale Weber in                      0.705   0.045 *  
+## Centaurea stoebe L. ssp. micranthos (Gugler) Hayek 0.705   0.038 *  
+## 
+##  Group DF+DU  #sps.  6 
+##                                   stat p.value    
+## Abutilon theophrasti Medikus     1.000   0.001 ***
+## Chenopodium album L.             1.000   0.001 ***
+## Digitaria sanguinalis (L.) Scop. 1.000   0.001 ***
+## Setaria faberi Herrm.            1.000   0.001 ***
+## Cyperus esculentus L.            0.913   0.002 ** 
+## Amaranthus retroflexus L.        0.816   0.008 ** 
+## 
+##  Group UF+UU  #sps.  1 
+##                         stat p.value    
+## Solidago canadensis L. 0.957   0.001 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+The block of code above contains hypothesis tests to assess whether the
+communities in each factorial treatment group are the same and which
+species may be indicators of a particular treatment regime. Based on the
+PERMANOVA test, we have enough evidence to conclude that community
+composition is not the same in each of the treatment groups
+(R\textsuperscript{2} = 0.5743, F\textsubscript{3,20} = 8.9955, p =
+0.001). The indicator value analysis above presents the list of species
+that are significantly associated with each treatment community.
+
+\hypertarget{pcoa-code}{%
+\subsection{PCoA CODE}\label{pcoa-code}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#first need to create species codes to make ordination legible later}
+\NormalTok{kbsspplist}\SpecialCharTok{$}\NormalTok{spp.code }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"A.theo"}\NormalTok{,}\StringTok{"A.mill"}\NormalTok{,}\StringTok{"A.retr"}\NormalTok{,}\StringTok{"A.arte"}\NormalTok{,}\StringTok{"A.cann"}\NormalTok{,}\StringTok{"A.thal"}\NormalTok{,}
+                       \StringTok{"A.syri"}\NormalTok{,}\StringTok{"A.plat"}\NormalTok{,}\StringTok{"A.pilo"}\NormalTok{,}\StringTok{"A.sagi"}\NormalTok{,}\StringTok{"B.vulg"}\NormalTok{,}\StringTok{"B.iner"}\NormalTok{,}
+                       \StringTok{"C.orbi"}\NormalTok{,}\StringTok{"C.stoe"}\NormalTok{,}\StringTok{"C.vulg"}\NormalTok{,}\StringTok{"C.albu"}\NormalTok{,}\StringTok{"C.escu"}\NormalTok{,}\StringTok{"D.glom"}\NormalTok{,}
+                       \StringTok{"D.caro"}\NormalTok{,}\StringTok{"D.arme"}\NormalTok{,}\StringTok{"D.isch"}\NormalTok{,}\StringTok{"D.sang"}\NormalTok{,}\StringTok{"E.repe"}\NormalTok{,}\StringTok{"E.cili"}\NormalTok{,}
+                       \StringTok{"E.annu"}\NormalTok{,}\StringTok{"E.gram"}\NormalTok{,}\StringTok{"H.sp"}\NormalTok{,}\StringTok{"H.perf"}\NormalTok{,}\StringTok{"J.tenu"}\NormalTok{,}\StringTok{"L.corn"}\NormalTok{,}
+                       \StringTok{"M.vert"}\NormalTok{,}\StringTok{"O.stri"}\NormalTok{,}\StringTok{"P.capi"}\NormalTok{,}\StringTok{"P.dich"}\NormalTok{,}\StringTok{"P.macu"}\NormalTok{,}\StringTok{"P.arun"}\NormalTok{,}
+                       \StringTok{"Ph.prat"}\NormalTok{,}\StringTok{"P.comp"}\NormalTok{,}\StringTok{"Po.prat"}\NormalTok{,}\StringTok{"P.pens"}\NormalTok{,}\StringTok{"P.oler"}\NormalTok{,}\StringTok{"P.norv"}\NormalTok{,}
+                       \StringTok{"P.rect"}\NormalTok{,}\StringTok{"R.alle"}\NormalTok{,}\StringTok{"R.flag"}\NormalTok{,}\StringTok{"R.occi"}\NormalTok{,}\StringTok{"R.cris"}\NormalTok{,}\StringTok{"R.obtu"}\NormalTok{,}
+                       \StringTok{"S.fabe"}\NormalTok{,}\StringTok{"S.pumi"}\NormalTok{,}\StringTok{"S.alba"}\NormalTok{,}\StringTok{"S.sp"}\NormalTok{,}\StringTok{"S.cana"}\NormalTok{,}\StringTok{"T.offi"}\NormalTok{,}
+                       \StringTok{"T.flav"}\NormalTok{,}\StringTok{"T.camp"}\NormalTok{,}\StringTok{"T.hybr"}\NormalTok{,}\StringTok{"T.prat"}\NormalTok{,}\StringTok{"T.repe"}\NormalTok{,}\StringTok{"V.sp"}\NormalTok{)}
+\CommentTok{\#reassigning column names so they\textquotesingle{}ll be legible in the ordination}
+\FunctionTok{colnames}\NormalTok{(sXspp.treat)}\OtherTok{\textless{}{-}}\NormalTok{kbsspplist}\SpecialCharTok{$}\NormalTok{spp.code}
+\CommentTok{\#need to build resemblance matrix (using Bray{-}Curtis \%diff.)}
+\NormalTok{kbs.db2}\OtherTok{\textless{}{-}}\FunctionTok{vegdist}\NormalTok{(sXspp.treat,}\AttributeTok{method=}\StringTok{"bray"}\NormalTok{)}
+\CommentTok{\#doing pcoa test}
+\NormalTok{kbs.pcoa}\OtherTok{\textless{}{-}}\FunctionTok{cmdscale}\NormalTok{(kbs.db2,}\AttributeTok{eig=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{k=}\DecValTok{3}\NormalTok{)}
+\CommentTok{\#finding variance explained by pcoa}
+\NormalTok{explvar1}\OtherTok{\textless{}{-}}\FunctionTok{round}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig[}\DecValTok{1}\NormalTok{]}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig),}\DecValTok{3}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100}
+\NormalTok{explvar2}\OtherTok{\textless{}{-}}\FunctionTok{round}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig),}\DecValTok{3}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100}
+\NormalTok{explvar3}\OtherTok{\textless{}{-}}\FunctionTok{round}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig[}\DecValTok{3}\NormalTok{]}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{eig),}\DecValTok{3}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100}
+\NormalTok{sum.eig}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(explvar1,explvar2,explvar3)}
+\CommentTok{\#creating pcoa plot}
+\CommentTok{\#making color vector to color{-}code treatments}
+\FunctionTok{library}\NormalTok{(NatParksPalettes)}
+\NormalTok{pcoacols}\OtherTok{\textless{}{-}}\FunctionTok{natparks.pals}\NormalTok{(}\StringTok{"Triglav"}\NormalTok{,}\DecValTok{4}\NormalTok{,}\StringTok{"discrete"}\NormalTok{)}
+\CommentTok{\#explanding color vector so it matches treatment labels}
+\NormalTok{pcoacols.exp}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(pcoacols[}\DecValTok{1}\NormalTok{],}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(pcoacols[}\DecValTok{2}\NormalTok{],}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(pcoacols[}\DecValTok{3}\NormalTok{],}\DecValTok{6}\NormalTok{),}
+                \FunctionTok{rep}\NormalTok{(pcoacols[}\DecValTok{4}\NormalTok{],}\DecValTok{6}\NormalTok{))}
+\CommentTok{\#plot parameters}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)}\SpecialCharTok{+}\FloatTok{0.1}\NormalTok{)}
+\CommentTok{\#starting plot}
+\FunctionTok{plot}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{points[,}\DecValTok{1}\NormalTok{],kbs.pcoa}\SpecialCharTok{$}\NormalTok{points[,}\DecValTok{2}\NormalTok{],}\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{0.75}\NormalTok{,}\FloatTok{0.75}\NormalTok{),}
+     \AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{1.0}\NormalTok{,}\FloatTok{0.75}\NormalTok{),}\AttributeTok{xlab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"PCoA 1 ("}\NormalTok{, explvar1, }\StringTok{"\%)"}\NormalTok{,}\AttributeTok{sep=}\StringTok{""}\NormalTok{),}
+     \AttributeTok{ylab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"PCoA 2 ("}\NormalTok{, explvar2, }\StringTok{"\%)"}\NormalTok{,}\AttributeTok{sep=}\StringTok{""}\NormalTok{),}
+     \AttributeTok{pch=}\DecValTok{16}\NormalTok{,}\AttributeTok{cex=}\FloatTok{2.0}\NormalTok{,}\AttributeTok{type=}\StringTok{"n"}\NormalTok{,}\AttributeTok{cex.lab=}\DecValTok{1}\NormalTok{,}\AttributeTok{cex.axis=}\FloatTok{1.2}\NormalTok{,}\AttributeTok{axes=}\ConstantTok{FALSE}\NormalTok{)}
+\CommentTok{\#adding axes to plot}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side=}\DecValTok{1}\NormalTok{,}\AttributeTok{labels=}\NormalTok{T,}\AttributeTok{lwd.ticks=}\DecValTok{2}\NormalTok{,}\AttributeTok{cex.axis=}\FloatTok{1.2}\NormalTok{,}\AttributeTok{las=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{axis}\NormalTok{(}\AttributeTok{side=}\DecValTok{2}\NormalTok{,}\AttributeTok{labels=}\NormalTok{T,}\AttributeTok{lwd.ticks=}\DecValTok{2}\NormalTok{,}\AttributeTok{cex.axis=}\FloatTok{1.2}\NormalTok{,}\AttributeTok{las=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h=}\DecValTok{0}\NormalTok{,}\AttributeTok{v=}\DecValTok{0}\NormalTok{,}\AttributeTok{lty=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\CommentTok{\#adding points and labels}
+\FunctionTok{points}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{points[,}\DecValTok{1}\NormalTok{],kbs.pcoa}\SpecialCharTok{$}\NormalTok{points[,}\DecValTok{2}\NormalTok{],}\AttributeTok{pch=}\DecValTok{22}\NormalTok{,}\AttributeTok{cex=}\FloatTok{1.25}\NormalTok{,}
+       \AttributeTok{bg=}\NormalTok{pcoacols.exp,}\AttributeTok{col=}\StringTok{"black"}\NormalTok{)}
+\CommentTok{\#text(kbs.pcoa$points[,1],kbs.pcoa$points[,2],}
+     \CommentTok{\#labels=row.names(kbs.pcoa$points),cex=0.5)}
+\CommentTok{\#now finding species scores so they can be included in ordination}
+\CommentTok{\#calculating relative abundances of spp. at each site}
+\NormalTok{kbsREL}\OtherTok{\textless{}{-}}\NormalTok{sXspp.treat}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(sXspp.treat))\{}
+\NormalTok{  kbsREL[i,]}\OtherTok{=}\NormalTok{sXspp.treat[i,]}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(sXspp.treat[i,])}
+\NormalTok{\}}
+\CommentTok{\#using relative abundance to calculate and add spp. scores to figure}
+\CommentTok{\#reading in new spec.score function}
+\FunctionTok{source}\NormalTok{(}\StringTok{"/Users/annawerkowski/Documents/Github/spec.scores.function.R"}\NormalTok{)}
+\NormalTok{kbs.pcoa}\OtherTok{\textless{}{-}}\FunctionTok{add.spec.scores.class}\NormalTok{(kbs.pcoa,kbsREL,}\AttributeTok{method=}\StringTok{"pcoa.scores"}\NormalTok{)}
+\CommentTok{\#only plotting names of spp. that aren\textquotesingle{}t in central cluster of species}
+\FunctionTok{text}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{cproj[}\FunctionTok{c}\NormalTok{(}\DecValTok{17}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{53}\NormalTok{,}\DecValTok{58}\NormalTok{),}\DecValTok{1}\NormalTok{],kbs.pcoa}\SpecialCharTok{$}\NormalTok{cproj[}\FunctionTok{c}\NormalTok{(}\DecValTok{17}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{53}\NormalTok{,}\DecValTok{58}\NormalTok{),}\DecValTok{2}\NormalTok{],}
+     \AttributeTok{labels=}\FunctionTok{row.names}\NormalTok{(kbs.pcoa}\SpecialCharTok{$}\NormalTok{cproj[}\FunctionTok{c}\NormalTok{(}\DecValTok{17}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{53}\NormalTok{,}\DecValTok{58}\NormalTok{),]),}\AttributeTok{col=}\StringTok{"black"}\NormalTok{,}\AttributeTok{cex=}\FloatTok{0.75}\NormalTok{)}
+\CommentTok{\#Legend stuff}
+\CommentTok{\#treatment vector for legend}
+\NormalTok{treat.v}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"Dist/Unfert"}\NormalTok{,}\StringTok{"Dist/Fert"}\NormalTok{,}\StringTok{"Undist/Unfert"}\NormalTok{,}\StringTok{"Undist/Fert"}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\FloatTok{0.25}\NormalTok{,}\FloatTok{0.7}\NormalTok{,treat.v,}\AttributeTok{col=}\NormalTok{pcoacols,}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}\AttributeTok{cex=}\FloatTok{0.75}\NormalTok{,}\AttributeTok{fill=}\NormalTok{pcoacols)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final_Rmarkdown_files/figure-latex/unnamed-chunk-9-1.pdf}
+The code block above creates the above PCoA ordination. This figure
+represents the difference in community composition for each treatment.
+The ordination also includes codes for the five species that were most
+strongly associated with particular treatment communities: \emph{Setaria
+faberi}, \emph{Solidago canadensis}, \emph{Trifolium pratense},
+\emph{Cyperus esculentus}, and \emph{Digitaria sanguinalis}. The
+remainder of the \textasciitilde18 species that were significantly
+associated with a specific treatment were clustered in the center of the
+figure and were hidden to improve legibility.
+
+Based on the outcomes of hypothesis testing and visualization, I would
+conclude that the disturbance and nutrient addition treatments have
+played a role in determining the community composition of these prairie
+plots. Whether or not a plot was disturbed had a particularly strong
+influence on community composition, which can be seen along the first
+PCoA axis (horizontal) in the figure. This matches prior findings that
+disturbed communities were heavily populated with annual plants, while
+undisturbed communities contained primarily perennials (Grman et
+al.~2010, Huberty et al.~1998).
+
+\hypertarget{references}{%
+\subsection{REFERENCES}\label{references}}
+
+Grman, E., Lau, J. A., Schoolmaster, D. R., and K. L. Gross. 2010.
+Mechanisms contributing to stability in ecosystem function depend on the
+environmental context. Ecology Letters. 13:1400-1410. Gross, K. and J.
+Lau. 2022. Plant community and ecosystem responses to long-term
+fertilization \& disturbance at the Kellogg Biological Station, Hickory
+Corners, MI (1989 to 2019) ver 49. Environmental Data Initiative.
+\url{https://doi.org/10.6073/pasta/ea22c735ddfe17c595ccca978a87d109}
+(Accessed 2023-03-02). Huberty, L. E., Gross, K. L., and C. J. Miller.
+1998. Effects of nitrogen addition on successional dynamics and species
+diversity in Michigan old-fields. J. Ecol. 86:794-803.
+
+\end{document}
