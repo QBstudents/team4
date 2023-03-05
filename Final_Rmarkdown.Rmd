@@ -1,0 +1,474 @@
+---
+title: "QB Team Project"
+author: "Thomas Zambiasi and Anna Werkowski"
+date: "2023-02-15"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## ABOUT THE DATA:
+The data we are using for this project was collected from the Kellogg Biological Station Long Term Ecological Research Site (Hickory Corners, MI). Old agricultural fields were repopulated with a natural prairie community starting in 1989; in 1990, treatment to assess the effects of nitrogen enrichment and disturbance was started. This treatment occurred across six replicates and consisted of fully factorial combinations of annual tilling/no tilling and fertilizer addition/no fertilizer (Grman et al. 2010, Gross and Lau 2022). Several types of data have been collected from these plots, including ANPP measures, bulk sample biomass, species-specific biomass, and soil inorganic nitrogen. For the purposes of our project, we will focus on species-specific biomass collected in 2014.
+
+## RESEARCH QUESTIONS:
+Using the data from the KBS Early Successional Microplots and the techniques we've learned in Quantitative Biodiversity, we hope to address the following questions:
+
+*Do disturbance and nutrient addition govern prairie community assembly?*
+
+*Do the disturbance and nutrient treatments have an effect on prairie community evenness?*
+
+The following code will provide the analyses and figures that we hope to use to answer these questions.
+
+## LOADING REQUIRED PACKAGES
+
+```{r}
+package.list <- c('BiodiversityR', 'data.table', 'dbplyr', 'DescTools', 'devtools', 'dplyr', 'dtplyr', 'forcats', 'ggplot2', 'ggpubr', 'ggrepel', 'ggsci', 'ggsignif', 'gplots', 'indicspecies', 'knitr', 'lattice', 'MASS', 'multcomp', 'NatParksPalettes', 'nlme', 'permute', 'RColorBrewer', 'rmarkdown', 'SpadeR', 'stats', 'tcltk', 'tcltk2', 'tidyr', 'tidyverse', 'vegan', 'viridis')
+for (package in package.list){
+  if (!require(package, character.only = TRUE, quietly = TRUE)) {
+    install.packages(package, repos = 'https://cran.us.r-project.org')
+    library(package, character.only = TRUE)
+  }
+}
+getwd()
+setwd("/Users/annawerkowski/Documents/Github/QB2023_Werkowski/team4")
+```
+
+
+## LOADING DATASET
+```{r}
+kbs_set_1 <- read.csv("data/kbs_set_1.csv", sep = ",", dec = ".", header = T)
+kbsdata1<-read.csv("data/kbs_set_1.csv")
+#removing first row (has extra unneeded characters)
+kbsdata1<-kbsdata1[-1,]
+#isolating relevant data columns
+kbsdata2<-kbsdata1[,c("replicate","disturbed","fertilized",
+                      "species.name","biomass_g_m2")]
+#sites will be determined by rep+treatment combo
+#need to combine rep+treatment combos into single label column
+kbsdata2$site<-paste(kbsdata2$replicate,kbsdata2$disturbed,kbsdata2$fertilized)
+#rearranging data again
+kbsdata3<-kbsdata2[,c("site","species.name","biomass_g_m2")]
+#creating list of sites 
+kbssitelist<-as.data.frame(unique(kbsdata3$site))
+#creating list of species
+kbsspplist<-unique(kbsdata3$species.name)
+#reworking into dataframe
+kbsspplist<-as.data.frame(kbsspplist,)
+#renaming column to be able to join matrix components easier
+colnames(kbsspplist)<-c("species.name")
+```
+
+## CREATING SITE BY SPECIES MATRIX
+```{r}
+#creating site-specific data and adding to sXspp. by spp. name, steps
+#repeat for each site
+#r1, dist. unfert.
+R1du<-kbsdata3[kbsdata3$site=="R1 disturbed unfertilized",] #isolating site data
+R1du<-R1du[,2:3] #removing site column
+sXspp<-left_join(kbsspplist,R1du,by="species.name") #joining to spp. list
+colnames(sXspp)<-c("species.name","R1du") #renaming sXspp columns
+#r1, dist. fert.
+R1df<-kbsdata3[kbsdata3$site=="R1 disturbed fertilized",]
+R1df<-R1df[,2:3]
+sXspp<-left_join(sXspp,R1df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df")
+#r1, undist. unfert.
+R1uu<-kbsdata3[kbsdata3$site=="R1 undisturbed unfertilized",]
+R1uu<-R1uu[,2:3]
+sXspp<-left_join(sXspp,R1uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu")
+#r1, undist. fert.
+R1uf<-kbsdata3[kbsdata3$site=="R1 undisturbed fertilized",]
+R1uf<-R1uf[,2:3]
+sXspp<-left_join(sXspp,R1uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf")
+#r2, dist. unfert.
+R2du<-kbsdata3[kbsdata3$site=="R2 disturbed unfertilized",]
+R2du<-R2du[,2:3]
+sXspp<-left_join(sXspp,R2du,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du")
+#r2, dist. fert.
+R2df<-kbsdata3[kbsdata3$site=="R2 disturbed fertilized",]
+R2df<-R2df[,2:3]
+sXspp<-left_join(sXspp,R2df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df")
+#r2, undist. unfert.
+R2uu<-kbsdata3[kbsdata3$site=="R2 undisturbed unfertilized",]
+R2uu<-R2uu[,2:3]
+sXspp<-left_join(sXspp,R2uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu")
+#r2, undist. fert.
+R2uf<-kbsdata3[kbsdata3$site=="R2 undisturbed fertilized",]
+R2uf<-R2uf[,2:3]
+sXspp<-left_join(sXspp,R2uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf")
+#r3, dist. unfert.
+R3du<-kbsdata3[kbsdata3$site=="R3 disturbed unfertilized",]
+R3du<-R3du[,2:3]
+sXspp<-left_join(sXspp,R3du,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du")
+#r3, dist. fert.
+R3df<-kbsdata3[kbsdata3$site=="R3 disturbed fertilized",]
+R3df<-R3df[,2:3]
+sXspp<-left_join(sXspp,R3df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df")
+#r3, undist. unfert.
+R3uu<-kbsdata3[kbsdata3$site=="R3 undisturbed unfertilized",]
+R3uu<-R3uu[,2:3]
+sXspp<-left_join(sXspp,R3uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu")
+#r3, undist. fert.
+R3uf<-kbsdata3[kbsdata3$site=="R3 undisturbed fertilized",]
+R3uf<-R3uf[,2:3]
+sXspp<-left_join(sXspp,R3uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf")
+#r4, dist. unfert.
+R4du<-kbsdata3[kbsdata3$site=="R4 disturbed unfertilized",]
+R4du<-R4du[,2:3]
+sXspp<-left_join(sXspp,R4du,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du")
+#r4, dist. fert.
+R4df<-kbsdata3[kbsdata3$site=="R4 disturbed fertilized",]
+R4df<-R4df[,2:3]
+sXspp<-left_join(sXspp,R4df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df")
+#r4, undist. unfert.
+R4uu<-kbsdata3[kbsdata3$site=="R4 undisturbed unfertilized",]
+R4uu<-R4uu[,2:3]
+sXspp<-left_join(sXspp,R4uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu")
+#r4, undist. fert.
+R4uf<-kbsdata3[kbsdata3$site=="R4 undisturbed fertilized",]
+R4uf<-R4uf[,2:3]
+sXspp<-left_join(sXspp,R4uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf")
+#r5, dist. unfert.
+R5du<-kbsdata3[kbsdata3$site=="R5 disturbed unfertilized",]
+R5du<-R5du[,2:3]
+sXspp<-left_join(sXspp,R5du,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du")
+#r5, dist. fert.
+R5df<-kbsdata3[kbsdata3$site=="R5 disturbed fertilized",]
+R5df<-R5df[,2:3]
+sXspp<-left_join(sXspp,R5df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df")
+#r5, undist. unfert.
+R5uu<-kbsdata3[kbsdata3$site=="R5 undisturbed unfertilized",]
+R5uu<-R5uu[,2:3]
+sXspp<-left_join(sXspp,R5uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu")
+#r5, undist. fert.
+R5uf<-kbsdata3[kbsdata3$site=="R5 undisturbed fertilized",]
+R5uf<-R5uf[,2:3]
+sXspp<-left_join(sXspp,R5uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu","R5uf")
+#r6, dist. unfert.
+R6du<-kbsdata3[kbsdata3$site=="R6 disturbed unfertilized",]
+R6du<-R6du[,2:3]
+sXspp<-left_join(sXspp,R6du,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu","R5uf","R6du")
+#r6, dist. fert.
+R6df<-kbsdata3[kbsdata3$site=="R6 disturbed fertilized",]
+R6df<-R6df[,2:3]
+sXspp<-left_join(sXspp,R6df,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu","R5uf","R6du","R6df")
+#r6, undist. unfert.
+R6uu<-kbsdata3[kbsdata3$site=="R6 undisturbed unfertilized",]
+R6uu<-R6uu[,2:3]
+sXspp<-left_join(sXspp,R6uu,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu","R5uf","R6du","R6df",
+                   "R6uu")
+#r6, undist. fert.
+R6uf<-kbsdata3[kbsdata3$site=="R6 undisturbed fertilized",]
+R6uf<-R6uf[,2:3]
+sXspp<-left_join(sXspp,R6uf,by="species.name")
+colnames(sXspp)<-c("species.name","R1du","R1df","R1uu","R1uf","R2du","R2df",
+                   "R2uu","R2uf","R3du","R3df","R3uu","R3uf","R4du","R4df",
+                   "R4uu","R4uf","R5du","R5df","R5uu","R5uf","R6du","R6df",
+                   "R6uu","R6uf")
+#converting column 1 to row names (species names)
+row.names(sXspp)<-sXspp$species.name
+sXspp<-sXspp[,-1]
+#converting all NAs to zeros
+sXspp[is.na(sXspp)]<-0
+#converting to numeric (columns all chr)
+sXspp<-mutate_all(sXspp,function(x)as.numeric(x))
+#also need to convert to matrix and transform
+sXspp.mtx<-t(as.matrix(sXspp))
+```
+
+## ALPHA DIVERSITY
+The following analyses will be used to assess metrics of alpha diversity to address our question about the effects of the treatments on species evenness in the prairie communities.  
+
+## CREATING A RANK ABUNDANCE CURVE
+```{r}
+RAC <- function(x = ""){
+  x.ab = x[x > 0]
+  x.ab.ranked = x.ab[order(x.ab, decreasing = TRUE)]
+  as.data.frame(lapply(x.ab.ranked, unlist))
+  return(x.ab.ranked)
+}
+
+#generating a rank abundance curve for a single site
+plot.new()
+site1 <- sXspp[1, ] 
+rac <- RAC(x = site1)
+ranks <- as.vector(seq(1, length(rac)))
+opar <- par(no.readonly = TRUE)
+par(mar = c(5.1, 5.1, 4.1, 2.1))
+plot(ranks, log(rac), type = 'p', axes = F,
+     xlab = "Rank in Abundance", ylab = "Abundance",
+     las = 1, cex.lab = 1.4, cex.axis = 1.25)
+box()
+axis(side = 1, labels = T, cex.axis = 1.25)
+axis(side = 2, las = 1, cex.axis = 1.25,
+     labels = c(0.05,1,2,5,10,20), at = log(c(0.05,1,2,5,10,20)))
+par <- opar
+```
+The code that was run above shows the rank abundance curve for one site out of the entire site by species matrix. Rank abundance curves are used to visualize evenness as well as richness. The evenness of our population can be determined based on the slop of the line. From our site 1 rank abundance curve, we can determine that there are many species ranking the same in this site, contributing to a shallower slope and a higher evenness value. 
+
+```{r}
+#generating a rank abundance curve for the entire site by species matrix
+plot.new()
+rac <- RAC(x = sXspp)
+ranks <- as.vector(seq(1, length(rac)))
+opar <- par(no.readonly = TRUE)
+par(mar = c(5.1, 5.1, 4.1, 2.1))
+plot(ranks, log(rac), type = 'p', axes = F,
+     xlab = "Rank in Abundance", ylab = "Abundance",
+     las = 1, cex.lab = 1.4, cex.axis = 1.25)
+box()
+axis(side = 1, labels = T, cex.axis = 1.25)
+axis(side = 2, las = 1, cex.axis = 1.25,
+     labels = c(0.05,1,2,5,10,20), at = log(c(0.05,1,2,5,10,20)))
+par <- opar
+```
+Unlike the single site rank abundance curve, the entire site by species matrix shows some very different results. I would categorize the slop of this line as steep, with more high-ranking individuals also being higher in relative abundance overall. Due to this, we can say that there is an overall low evenness for the entire population sampled. On an individual site by site basis, the evenness is different, which is most likely being contributed to by the different treatments that the sites are receiving.
+
+## ALPHA DIVERSITY TESTS
+```{r}
+#create observed richness function
+S.obs <- function(x = ""){
+  rowSums(x > 0) * 1
+}
+#run analyses for Shannon, Simpson, and Hill numbers
+data <- kbs_set_1[-1,]
+
+#transform to wide format 
+data$biomass_g_m2 <- as.numeric(data$biomass_g_m2)
+speciesmatrix <- data %>%
+  dplyr::select(species.name, replicate, disturbed, fertilized, biomass_g_m2)  %>%
+  pivot_wider(names_from = species.name, values_from = biomass_g_m2, 
+              values_fill = list(biomass_g_m2 = 0)) 
+
+
+#Calculate Hill numbers and create new data set 
+#hill = 0
+richness <- apply(speciesmatrix[,4:63], 1, specnumber)
+
+#hill = 1 
+expShannonfunction <- function(x) {exp(diversity(x, index ="shannon"))}
+expShannon <- apply(speciesmatrix[,4:63], 1, expShannonfunction)
+
+#hill = 2
+invSimpsonfunction <- function(x) {1/(diversity(x, index ="simpson"))}
+invSimpson <- apply(speciesmatrix[,4:63], 1, invSimpsonfunction)
+
+#Create a data set with factors and the diversity indices 
+altogether <- cbind.data.frame(speciesmatrix, richness, expShannon, invSimpson)
+
+#Calculate mean and standard deviation for the replicates
+altogetherSum <- altogether %>%
+  pivot_longer(cols = c("richness", "expShannon", "invSimpson"), 
+               names_to = "index", values_to = "diversity") %>%
+  group_by(index, disturbed, fertilized) %>%
+  summarise(meanDiversity = mean(diversity), sdDiversity = sd(diversity))
+
+#Plot data using ggplots
+ggplot(altogetherSum, aes(x = disturbed, y = meanDiversity, color = fertilized)) +
+  geom_point(size = 4, position = position_dodge(.9)) +
+  geom_errorbar(aes(ymin = meanDiversity - sdDiversity, ymax= meanDiversity + sdDiversity),
+  width=.2,position=position_dodge(.9)) + facet_grid(.~index) + theme_bw()
+```
+Using the Hill numbers section of the binder, I was able to create diversity indices using the richness, exponential Shannon, and inverse Simpson functions. By plotting, we can see that the richness index has the most signficiant results. From that portion of the graph we can see that undisturbed and unfertilized as well as disturbed and unfertilized plots had the highest richness values. Unfertilized plots had higher richness values overall. I believe that this is because fertilizers benefit certain plants over others, contributing to a less diverse plant population. We only looked at data taken in 2014 but it would potentially be a more telling story if these indices were evaluated over the entire 30 year period. 
+
+
+## BETA DIVERSITY
+The analyses in this section will assess metrics related to beta diversity and should help to answer our question about the role the treatments play in community structure. 
+
+## BETA DIVERSITY AND VISUALIZATION
+```{r}
+beta.w<-function(site.by.species="",sitenum1="",sitenum2="",pairwise=FALSE){
+  #IF we specify pairwise as true, function should run this part:
+  if(pairwise==TRUE){
+    #code to print an error if we don't give necessary arguments
+    if(sitenum1==""|sitenum2==""){
+      print("Error: you need to specify some sites to compare")
+      return(NA)
+    }
+    #now code for calculating pairwise beta diversity
+    site1=site.by.species[sitenum1,] #selecting site 1
+    site2=site.by.species[sitenum2,] #selecting site 2
+    site1=subset(site1,select=site1>0) #removes absences in site 1
+    site2=subset(site2,select=site2>0) #removes absences in site 2
+    gamma=union(colnames(site1),colnames(site2)) #creates gamma species pool
+    s=length(gamma) #gamma richness
+    a.bar=mean(c(specnumber(site1),specnumber(site2))) #mean sample richness
+    b.w=round(s/a.bar-1,3)
+    return(b.w)
+  }
+  #otherwise, function defaults to false and runs this:
+  SbyS.pa<-decostand(site.by.species,method="pa") #convert to presence/absence
+  S<-ncol(SbyS.pa[,which(colSums(SbyS.pa)>0)]) #number of species in the region
+  a.bar<-mean(specnumber(SbyS.pa)) #average richness at each site
+  b.w<-round(S/a.bar,3) #rounding to 3 decimals
+  return(b.w)
+}
+
+#finding b-diversity value across whole sXspp matrix
+beta.w(sXspp.mtx,pairwise=FALSE)
+
+#building resemblance matrix using Bray-Curtis
+kbs.db<-vegdist(sXspp.mtx,method="bray")
+kbs.db
+
+#setting up cluster analysis 
+kbs.ward<-hclust(kbs.db,method="ward.D2")
+#cluster analysis figure
+par(mar=c(1,5,2,2)+0.1)
+plot(kbs.ward,main="KBS Early Successional Microsite (2014): Ward's Clustering",
+     ylab="Squared Bray-Curtis Dsitance")
+
+```
+The code above was used to find a beta diversity value for the entire site-by-species complex, create a Bray-Curtis resemblance matrix, and plot a cluster analysis to gain an initial visual assessment of similarities in community composition. The beta diversity value for the entire metacommunity is 5.255; given that beta diversity is a ratio of gamma diversity to alpha diversity, this indicates that any individual site will contain roughly 20% of the species present in the global environment. The cluster analysis (Ward's Clustering) also indicates that the community composition of disturbed and undisturbed communities is quite different; the communities are grouped somewhat within these categories by whether or not they had fertilizer added, but this is not perfectly consistent.
+
+## BIODIVERSITY HYPOTHESIS TESTING
+```{r}
+#reorganizing sXspp matrix so it will line up better with factor vector
+#will be using treatments (df, du, uf, uu) as distinct treatment groups
+sXspp.treat<-sXspp.mtx[c("R1du","R2du","R3du","R4du","R5du","R6du",
+                         "R1df","R2df","R3df","R4df","R5df","R6df",
+                         "R1uu","R2uu","R3uu","R4uu","R5uu","R6uu",
+                         "R1uf","R2uf","R3uf","R4uf","R5uf","R6uf"),]
+#Will make three factor vectors; one for treat combo, one for each individually
+#treatment combo factors
+combo.factor<-c(rep("DU",6),rep("DF",6),rep("UU",6),rep("UF",6))
+#disturbance factors
+dist.factor<-c(rep("DIST",12),rep("UNDIST",12))
+#fertilizer factors
+fert.factor<-c(rep("UNFERT",6),rep("FERT",6),rep("UNFERT",6),rep("FERT",6))
+
+#will use multivariate/categorical hypothesis tests to look for spp. association
+#w/ particular treatments
+
+#will focus on full combo treatments
+#PERMANOVA - does community comp. differ between treatment combos
+adonis2(sXspp.treat~combo.factor,method="bray",permutations=999)
+#Indicator Value - do any spp. presences indicate particular treatment combo
+combo.indval<-multipatt(sXspp.treat,cluster=combo.factor,func="IndVal.g",
+                        control=how(nperm=999))
+summary(combo.indval)
+```
+The block of code above contains hypothesis tests to assess whether the communities in each factorial treatment group are the same and which species may be indicators of a particular treatment regime. Based on the PERMANOVA test,  we have enough evidence to conclude that community composition is not the same in each of the treatment groups (R^2^ = 0.5743, F~3,20~ = 8.9955, p = 0.001). The indicator value analysis above presents the list of species that are significantly associated with each treatment community.
+
+## PCoA CODE
+```{r}
+#first need to create species codes to make ordination legible later
+kbsspplist$spp.code <-c("A.theo","A.mill","A.retr","A.arte","A.cann","A.thal",
+                       "A.syri","A.plat","A.pilo","A.sagi","B.vulg","B.iner",
+                       "C.orbi","C.stoe","C.vulg","C.albu","C.escu","D.glom",
+                       "D.caro","D.arme","D.isch","D.sang","E.repe","E.cili",
+                       "E.annu","E.gram","H.sp","H.perf","J.tenu","L.corn",
+                       "M.vert","O.stri","P.capi","P.dich","P.macu","P.arun",
+                       "Ph.prat","P.comp","Po.prat","P.pens","P.oler","P.norv",
+                       "P.rect","R.alle","R.flag","R.occi","R.cris","R.obtu",
+                       "S.fabe","S.pumi","S.alba","S.sp","S.cana","T.offi",
+                       "T.flav","T.camp","T.hybr","T.prat","T.repe","V.sp")
+#reassigning column names so they'll be legible in the ordination
+colnames(sXspp.treat)<-kbsspplist$spp.code
+#need to build resemblance matrix (using Bray-Curtis %diff.)
+kbs.db2<-vegdist(sXspp.treat,method="bray")
+#doing pcoa test
+kbs.pcoa<-cmdscale(kbs.db2,eig=TRUE,k=3)
+#finding variance explained by pcoa
+explvar1<-round(kbs.pcoa$eig[1]/sum(kbs.pcoa$eig),3)*100
+explvar2<-round(kbs.pcoa$eig[2]/sum(kbs.pcoa$eig),3)*100
+explvar3<-round(kbs.pcoa$eig[3]/sum(kbs.pcoa$eig),3)*100
+sum.eig<-sum(explvar1,explvar2,explvar3)
+#creating pcoa plot
+#making color vector to color-code treatments
+library(NatParksPalettes)
+pcoacols<-natparks.pals("Triglav",4,"discrete")
+#explanding color vector so it matches treatment labels
+pcoacols.exp<-c(rep(pcoacols[1],6),rep(pcoacols[2],6),rep(pcoacols[3],6),
+                rep(pcoacols[4],6))
+#plot parameters
+par(mar=c(5,5,1,2)+0.1)
+#starting plot
+plot(kbs.pcoa$points[,1],kbs.pcoa$points[,2],ylim=c(-0.75,0.75),
+     xlim=c(-1.0,0.75),xlab=paste("PCoA 1 (", explvar1, "%)",sep=""),
+     ylab=paste("PCoA 2 (", explvar2, "%)",sep=""),
+     pch=16,cex=2.0,type="n",cex.lab=1,cex.axis=1.2,axes=FALSE)
+#adding axes to plot
+axis(side=1,labels=T,lwd.ticks=2,cex.axis=1.2,las=1)
+axis(side=2,labels=T,lwd.ticks=2,cex.axis=1.2,las=1)
+abline(h=0,v=0,lty=3)
+box(lwd=2)
+#adding points and labels
+points(kbs.pcoa$points[,1],kbs.pcoa$points[,2],pch=22,cex=1.25,
+       bg=pcoacols.exp,col="black")
+#text(kbs.pcoa$points[,1],kbs.pcoa$points[,2],
+     #labels=row.names(kbs.pcoa$points),cex=0.5)
+#now finding species scores so they can be included in ordination
+#calculating relative abundances of spp. at each site
+kbsREL<-sXspp.treat
+for(i in 1:nrow(sXspp.treat)){
+  kbsREL[i,]=sXspp.treat[i,]/sum(sXspp.treat[i,])
+}
+#using relative abundance to calculate and add spp. scores to figure
+#reading in new spec.score function
+source("/Users/annawerkowski/Documents/Github/spec.scores.function.R")
+kbs.pcoa<-add.spec.scores.class(kbs.pcoa,kbsREL,method="pcoa.scores")
+#only plotting names of spp. that aren't in central cluster of species
+text(kbs.pcoa$cproj[c(17,22,49,53,58),1],kbs.pcoa$cproj[c(17,22,49,53,58),2],
+     labels=row.names(kbs.pcoa$cproj[c(17,22,49,53,58),]),col="black",cex=0.75)
+#Legend stuff
+#treatment vector for legend
+treat.v<-c("Dist/Unfert","Dist/Fert","Undist/Unfert","Undist/Fert")
+legend(0.25,0.7,treat.v,col=pcoacols,bty="n",cex=0.75,fill=pcoacols)
+```
+The code block above creates the above PCoA ordination. This figure represents the difference in community composition for each treatment. The ordination also includes codes for the five species that were most strongly associated with particular treatment communities: *Setaria faberi*, *Solidago canadensis*, *Trifolium pratense*, *Cyperus esculentus*, and *Digitaria sanguinalis*. The remainder of the ~18 species that were significantly associated with a specific treatment were clustered in the center of the figure and were hidden to improve legibility. 
+
+Based on the outcomes of hypothesis testing and visualization, I would conclude that the disturbance and nutrient addition treatments have played a role in determining the community composition of these prairie plots. Whether or not a plot was disturbed had a particularly strong influence on community composition, which can be seen along the first PCoA axis (horizontal) in the figure. This matches prior findings that disturbed communities were heavily populated with annual plants, while undisturbed communities contained primarily perennials (Grman et al. 2010, Huberty et al. 1998).
+
+## REFERENCES
+
+Grman, E., Lau, J. A., Schoolmaster, D. R., and K. L. Gross. 2010. Mechanisms contributing to stability in ecosystem function depend on the environmental context. Ecology Letters. 13:1400-1410. 
+Gross, K. and J. Lau. 2022. Plant community and ecosystem responses to long-term fertilization & disturbance at the Kellogg Biological Station, Hickory Corners, MI (1989 to 2019) ver 49. Environmental Data Initiative. <https://doi.org/10.6073/pasta/ea22c735ddfe17c595ccca978a87d109> (Accessed 2023-03-02).
+Huberty, L. E., Gross, K. L., and C. J. Miller. 1998. Effects of nitrogen addition on successional dynamics and species diversity in Michigan old-fields. J. Ecol. 86:794-803.
